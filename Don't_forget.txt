@@ -1,0 +1,2 @@
+- Protect open for:
+ln -s /dev/urandom map.cub
