@@ -6,7 +6,7 @@
 /*   By: eriling <eriling@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/26 08:27:08 by eriling           #+#    #+#             */
-/*   Updated: 2021/03/22 12:05:45 by eriling          ###   ########.fr       */
+/*   Updated: 2021/03/22 13:26:33 by eriling          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,8 +34,8 @@ int	init_mlx_function(void)
 	vars.img.addr = mlx_get_data_addr(vars.img.img, &vars.img.bits_per_pixel,
 					&vars.img.line_length, &vars.img.endian);
 	comput(&vars.img, &vars);
-	mlx_hook(vars.mlx_win, 2, 1L << 0, switch_rt, &vars);
 	mlx_hook(vars.mlx_win, 33, 1L << 17, red_cross, &vars);
+	mlx_hook(vars.mlx_win, 2, 1L << 0, switch_rt, &vars);
 	mlx_loop(vars.mlx);	
 	return (0);
 }
