@@ -6,7 +6,7 @@
 /*   By: eriling <eriling@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/27 10:54:46 by eriling           #+#    #+#             */
-/*   Updated: 2021/03/22 13:38:25 by eriling          ###   ########.fr       */
+/*   Updated: 2021/03/22 14:21:05 by eriling          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,11 +59,16 @@ void	print_dynarr(void);
 void	dynarr_freeall(void);
 t_all	*singleton(void);
 t_dyn	*sg_dyn(void);
-int		init_mlx_function();
-int 	red_cross(t_vars *vars);
+int		init_mlx_function(void);
+int		red_cross(t_vars *vars);
 int		switch_rt(int key, t_vars *vars);
 void	my_mlx_pixel_put(t_data *data, int x, int y, int color);
 void	comput(t_data *img, t_vars *vars);
-double ft_abs(double a);
+double	ft_abs(double a);
+void	ray(t_data *img, double pixel_len, t_obj *cam);
+double	dot(t_vect v1, t_vect v2);
+int		hit_sphere(t_vect dir, t_obj *cam, t_obj *sp);
+void	my_mlx_pixel_put(t_data *data, int x, int y, int color);
+int		rgb_to_int(t_obj *obj);
 
 #endif

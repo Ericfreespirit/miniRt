@@ -1,3 +1,4 @@
 1) my_pixel_put ->color DONE
 2) free mlx function DONE
-3) put each camera view in an array 
+3) Norme
+4) put each camera view in an array 

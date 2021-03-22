@@ -6,7 +6,7 @@
 /*   By: eriling <eriling@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/02 10:55:05 by eriling           #+#    #+#             */
-/*   Updated: 2021/03/22 13:11:56 by eriling          ###   ########.fr       */
+/*   Updated: 2021/03/22 14:24:48 by eriling          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -151,24 +151,29 @@ typedef struct s_obj
 	union u_obj		u;
 }								t_obj;
 
-typedef struct  s_data {
-    void        *img;
-    char        *addr;
-    int         bits_per_pixel;
-    int         line_length;
-    int         endian;
-}               t_data;
+typedef struct s_data
+{
+	void		*img;
+	char		*addr;
+	int			bits_per_pixel;
+	int			line_length;
+	int			endian;
+	int			x;
+	int			y;
+}				t_data;
 
-typedef struct  s_vars {
-    void        *mlx;
-    void        *mlx_win;
+typedef struct s_vars
+{
+	void		*mlx;
+	void		*mlx_win;
 	t_data		img;
-}               t_vars;
+}				t_vars;
 
-typedef struct	s_vect{
-	double x;
-	double y;
-	double z;
+typedef struct s_vect
+{
+	double	x;
+	double	y;
+	double	z;
 }				t_vect;
 
 #endif

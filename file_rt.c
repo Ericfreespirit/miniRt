@@ -6,7 +6,7 @@
 /*   By: eriling <eriling@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/15 14:07:46 by eriling           #+#    #+#             */
-/*   Updated: 2021/03/22 12:01:30 by eriling          ###   ########.fr       */
+/*   Updated: 2021/03/22 14:28:29 by eriling          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,6 +67,5 @@ void	file_rt(int fd)
 	close(fd);
 	print_struct(); // delete at the end
 	init_mlx_function();
-
 	return ;
 }

@@ -6,7 +6,7 @@
 #    By: eriling <eriling@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/01/27 10:54:58 by eriling           #+#    #+#              #
-#    Updated: 2021/03/22 13:33:15 by eriling          ###   ########.fr        #
+#    Updated: 2021/03/22 14:12:23 by eriling          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -39,8 +39,11 @@ DIR_IS = parse/is_/is_single_data.c \
 DIR_ADD = parse/add_/add_rgb.c \
 					parse/add_/add_3_float.c \
 
-DIR_DRAW =	comput/init_mlx_function.c \
+DIR_COMPUT =	comput/init_mlx_function.c \
 						comput/comput.c \
+						comput/hit_sphere.c \
+						comput/ray.c \
+
 
 DIR_UTILS = utils/singleton.c \
 						utils/sg_dyn.c \
@@ -60,6 +63,9 @@ DIR_UTILS = utils/singleton.c \
 						utils/dynarr_freeall.c \
 						utils/hook_function.c \
 						utils/ft_abs.c \
+						utils/rgb_to_int.c \
+						utils/dot_product.c \
+						utils/my_mlx_pixel_put.c \
 
  
 OBJ = $(FILES:.c=.o) \
@@ -67,7 +73,7 @@ OBJ = $(FILES:.c=.o) \
 			$(DIR_IS:.c=.o) \
 			$(DIR_ADD:.c=.o) \
 			$(DIR_UTILS:.c=.o) \
-			$(DIR_DRAW:.c=.o) \
+			$(DIR_COMPUT:.c=.o) \
 
 all :   $(NAME) 
 

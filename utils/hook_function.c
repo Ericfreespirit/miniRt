@@ -6,7 +6,7 @@
 /*   By: eriling <eriling@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/17 09:02:13 by eriling           #+#    #+#             */
-/*   Updated: 2021/03/22 13:39:25 by eriling          ###   ########.fr       */
+/*   Updated: 2021/03/22 14:27:50 by eriling          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,10 @@
 #include "struct.h"
 #include <mlx.h>
 
-void free_program(t_vars *vars)
+void	free_program(t_vars *vars)
 {
 	mlx_destroy_image(vars->mlx, vars->img.img);
-	mlx_destroy_window(vars->mlx,vars->mlx_win);
+	mlx_destroy_window(vars->mlx, vars->mlx_win);
 	mlx_destroy_display(vars->mlx);
 	free(vars->mlx);
 	free(singleton());
