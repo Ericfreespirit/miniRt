@@ -6,7 +6,7 @@
 /*   By: eriling <eriling@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/27 10:54:46 by eriling           #+#    #+#             */
-/*   Updated: 2021/03/22 08:51:56 by eriling          ###   ########.fr       */
+/*   Updated: 2021/03/22 11:57:26 by eriling          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,7 +61,7 @@ t_all	*singleton(void);
 t_dyn	*sg_dyn(void);
 int		init_mlx_function();
 int 	red_cross(int key);
-int		switch_rt(int key, t_vars *vars, t_data *img);
+int		switch_rt(int key, t_vars *vars);
 void	my_mlx_pixel_put(t_data *data, int x, int y, int color);
 void	comput(t_data *img, t_vars *vars);
 double ft_abs(double a);

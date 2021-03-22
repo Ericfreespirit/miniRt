@@ -6,13 +6,13 @@
 /*   By: eriling <eriling@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/27 10:54:41 by eriling           #+#    #+#             */
-/*   Updated: 2021/03/22 09:40:59 by eriling          ###   ########.fr       */
+/*   Updated: 2021/03/22 12:01:24 by eriling          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "miniRT.h"
 #include "struct.h"
-#include <../minilibx-linux/mlx.h>
+#include <mlx.h>
 
 
 int	main(int ac, char **av)

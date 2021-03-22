@@ -6,7 +6,7 @@
 /*   By: eriling <eriling@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/17 09:04:33 by eriling           #+#    #+#             */
-/*   Updated: 2021/03/22 08:58:21 by eriling          ###   ########.fr       */
+/*   Updated: 2021/03/22 10:53:32 by eriling          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -123,11 +123,8 @@ int all_cam_view(t_data *img, t_vars *vars)
 			vp_width = ft_abs(tan((sg_dyn()->obj[i]->u.camera.fov / 2.0) / 57.29)) * 2;
 			vp_height = vp_width * ratio;
 			pixel_len = vp_width / (double)singleton()->r_x;
-			img->img = mlx_new_image(vars->mlx, singleton()->r_x, singleton()->r_y);
-			img->addr = mlx_get_data_addr(img->img, &img->bits_per_pixel,
-					&img->line_length, &img->endian);
 			ray(img, pixel_len, sg_dyn()->obj[i]);
-        		}
+        }
 		i++;
 	}
 	return(0);

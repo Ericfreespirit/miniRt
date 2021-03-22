@@ -6,15 +6,16 @@
 #    By: eriling <eriling@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/01/27 10:54:58 by eriling           #+#    #+#              #
-#    Updated: 2021/03/19 13:19:19 by eriling          ###   ########.fr        #
+#    Updated: 2021/03/22 10:55:56 by eriling          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 
 NAME = miniRT
 CC = clang
-HEAD = -Iinclude -Ilibft -I../minilibx-linux
-CFLAGS = -Wall -Wextra -Werror -fsanitize=address -g3
+HEAD = -Iinclude -Ilibft -Iminilibx-linux 
+CFLAGS = -Wall -Wextra $(DEBUG)
+#DEBUG = -fsanitize=address -g3
 
 FILES = main.c \
 				file_rt.c \
@@ -71,7 +72,7 @@ OBJ = $(FILES:.c=.o) \
 all :   $(NAME) 
 
 $(NAME) : libft/libft.a $(OBJ) ./include/miniRT.h
-		$(CC) -lXext -lX11 $(CFLAGS) $(HEAD) $(OBJ) ../minilibx-linux/libmlx.a libft/libft.a -o ${NAME}
+		$(CC) -lXext -lX11 -lm $(CFLAGS) $(HEAD) $(OBJ) minilibx-linux/libmlx.a libft/libft.a -o ${NAME}
 		
 libft/libft.a : 
 	make -C libft

@@ -6,7 +6,7 @@
 /*   By: eriling <eriling@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/15 14:07:46 by eriling           #+#    #+#             */
-/*   Updated: 2021/03/22 09:34:50 by eriling          ###   ########.fr       */
+/*   Updated: 2021/03/22 12:01:30 by eriling          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,7 +52,6 @@ void	file_rt(int fd)
 	error = 0;
 	ret = 1;
 	while (ret)
-	
 	{
 		ret = get_next_line(fd, &line, 1);
 		if (parse(line) == 1)
@@ -68,7 +67,6 @@ void	file_rt(int fd)
 	close(fd);
 	print_struct(); // delete at the end
 	init_mlx_function();
-	free(singleton());
-	dynarr_freeall();
+
 	return ;
 }
