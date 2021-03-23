@@ -6,7 +6,7 @@
 /*   By: eriling <eriling@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/02 10:55:05 by eriling           #+#    #+#             */
-/*   Updated: 2021/03/22 14:24:48 by eriling          ###   ########.fr       */
+/*   Updated: 2021/03/23 17:59:16 by eriling          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -175,5 +175,15 @@ typedef struct s_vect
 	double	y;
 	double	z;
 }				t_vect;
+
+typedef struct s_math
+{
+	double a;
+	double b;
+	double c;
+	double det;
+	double t1;
+	double t2;
+}				t_math;
 
 #endif

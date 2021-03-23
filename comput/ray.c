@@ -6,7 +6,7 @@
 /*   By: eriling <eriling@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/22 14:07:16 by eriling           #+#    #+#             */
-/*   Updated: 2021/03/22 14:20:08 by eriling          ###   ########.fr       */
+/*   Updated: 2021/03/23 17:48:40 by eriling          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,12 +18,14 @@
 int	hit_figure(t_data *img, t_vect *dir, t_obj *cam)
 {
 	size_t	i;
+	double t;
 
 	i = 0;
+	t = 9999999999999;
 	while (sg_dyn()->size > i)
 	{
 		if (sg_dyn()->obj[i]->my_type == sphere)
-			if (hit_sphere(*dir, cam, sg_dyn()->obj[i]) == 1)
+			if (hit_sphere(*dir, cam, sg_dyn()->obj[i], &t) == 1)
 				my_mlx_pixel_put(img, img->x, img->y, rgb_to_int(sg_dyn()->obj[i]));
 		i++;
 	}
