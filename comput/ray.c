@@ -6,7 +6,7 @@
 /*   By: eriling <eriling@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/22 14:07:16 by eriling           #+#    #+#             */
-/*   Updated: 2021/03/23 17:48:40 by eriling          ###   ########.fr       */
+/*   Updated: 2021/03/24 09:20:09 by eriling          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ int	hit_figure(t_data *img, t_vect *dir, t_obj *cam)
 	double t;
 
 	i = 0;
-	t = 9999999999999;
+	t = DOUBLE_MAX;
 	while (sg_dyn()->size > i)
 	{
 		if (sg_dyn()->obj[i]->my_type == sphere)

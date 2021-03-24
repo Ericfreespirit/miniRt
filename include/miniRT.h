@@ -6,7 +6,7 @@
 /*   By: eriling <eriling@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/27 10:54:46 by eriling           #+#    #+#             */
-/*   Updated: 2021/03/23 15:51:19 by eriling          ###   ########.fr       */
+/*   Updated: 2021/03/24 09:20:01 by eriling          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@
 # include <string.h>
 # include <fcntl.h>
 # include "struct.h"
+# define DOUBLE_MAX 1.7976931348623157e+308
 
 void	file_rt(int fd);
 size_t	ft_strlen(const char *s);

@@ -6,7 +6,7 @@
 /*   By: eriling <eriling@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/22 14:08:28 by eriling           #+#    #+#             */
-/*   Updated: 2021/03/23 18:21:58 by eriling          ###   ########.fr       */
+/*   Updated: 2021/03/24 09:21:38 by eriling          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,23 +15,20 @@
 #include <mlx.h>
 #include <math.h>
 
-
 int intersection_sphere(t_math *math, double *t)
 {
 	if (math->det > 0)
 	{
 		math->t1 = (-math->b + sqrt(math->det)) / (2 * math->a);
 		math->t2 = (-math->b - sqrt(math->det)) / (2 * math->a);
-		if (math->t1 < math->t2 && math->t1 < *t)
-		{
+		if ((math->t1 < 0 || math->t1 > *t) &&
+			(math->t2 < 0 || math->t2 > *t))
+			return (0);	
+		if (math->t1 > 0 && math->t1 < *t)
 			*t = math->t1;
-			return (1);
-		}
-		else if (math->t2 < math->t1 && math->t2 < *t)
-		{
+		if (math->t2 > 0 && math->t2 < *t)
 			*t = math->t2;
-			return (1);
-		}
+		return (1);
 	}
 	else if (math->det == 0)
 	{
