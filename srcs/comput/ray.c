@@ -6,7 +6,7 @@
 /*   By: eriling <eriling@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/22 14:07:16 by eriling           #+#    #+#             */
-/*   Updated: 2021/03/24 09:20:09 by eriling          ###   ########.fr       */
+/*   Updated: 2021/03/24 15:04:53 by eriling          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,20 +15,36 @@
 #include <mlx.h>
 #include <math.h>
 
+void dir_origin(t_vect *dir, t_vect *origin, t_obj *cam, double t)
+{
+	dir-> x *= t;
+	dir-> y *= t;
+	dir-> z *= t;
+	origin->x = cam->u.camera.x;
+	origin->y = cam->u.camera.y;
+	origin->z = cam->u.camera.z;
+}
+
 int	hit_figure(t_data *img, t_vect *dir, t_obj *cam)
 {
 	size_t	i;
 	double t;
+	t_vect inter;
+	t_vect origin;
 
 	i = 0;
 	t = DOUBLE_MAX;
 	while (sg_dyn()->size > i)
 	{
 		if (sg_dyn()->obj[i]->my_type == sphere)
-			if (hit_sphere(*dir, cam, sg_dyn()->obj[i], &t) == 1)
-				my_mlx_pixel_put(img, img->x, img->y, rgb_to_int(sg_dyn()->obj[i]));
+			if (hit_sphere(*dir, cam, sg_dyn()->obj[i], &t) == 0)
+				my_mlx_pixel_put(img, img->x, img->y, rgb_to_int(sg_dyn()->obj[i])); // at the end
+
+		
 		i++;
 	}
+	dir_origin(dir, &origin, cam, t);
+	inter = vect_sum(origin, *dir);
 	return (0);
 }
 

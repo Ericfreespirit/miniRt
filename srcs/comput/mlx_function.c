@@ -6,7 +6,7 @@
 /*   By: eriling <eriling@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/26 08:27:08 by eriling           #+#    #+#             */
-/*   Updated: 2021/03/22 13:45:54 by eriling          ###   ########.fr       */
+/*   Updated: 2021/03/24 11:32:46 by eriling          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 #include "struct.h"
 #include <mlx.h>
 
-int	init_mlx_function(void)
+int	mlx_function(void)
 {
 	t_vars	vars;
 	int		sizex;
