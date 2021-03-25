@@ -6,7 +6,7 @@
 /*   By: eriling <eriling@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/22 14:09:13 by eriling           #+#    #+#             */
-/*   Updated: 2021/03/25 08:47:29 by eriling          ###   ########.fr       */
+/*   Updated: 2021/03/25 17:10:50 by eriling          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,4 +54,16 @@ t_vect scale(t_vect v1, double t)
 	res.z = v1.z *= t;
 
 	return (res);
+}
+
+t_vect vect_light(t_l l)
+{
+	t_vect res;
+	
+	res.x =  l.x;
+	res.y =  l.y;
+	res.z =  l.z;
+
+	return (res);
+	
 }

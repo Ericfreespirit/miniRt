@@ -6,7 +6,7 @@
 /*   By: eriling <eriling@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/02 10:55:05 by eriling           #+#    #+#             */
-/*   Updated: 2021/03/24 14:12:39 by eriling          ###   ########.fr       */
+/*   Updated: 2021/03/25 18:19:50 by eriling          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -160,6 +160,7 @@ typedef struct s_data
 	int			endian;
 	int			x;
 	int			y;
+	double		pixel_len;
 }				t_data;
 
 typedef struct s_vars
@@ -186,4 +187,9 @@ typedef struct s_math
 	double t2;
 }				t_math;
 
+typedef struct s_last_hit
+{
+	double t;
+	t_obj obj;
+}				t_last_hit;	
 #endif

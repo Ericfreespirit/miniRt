@@ -6,7 +6,7 @@
 /*   By: eriling <eriling@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/22 14:08:28 by eriling           #+#    #+#             */
-/*   Updated: 2021/03/25 09:51:55 by eriling          ###   ########.fr       */
+/*   Updated: 2021/03/25 18:18:02 by eriling          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,34 +15,34 @@
 #include <mlx.h>
 #include <math.h>
 
-int near_sphere(t_math *math, double *t)
+int near_sphere(t_math *math, t_last_hit *lh)
 {
 	if (math->det > 0)
 	{
 		math->t1 = (-math->b + sqrt(math->det)) / (2 * math->a);
 		math->t2 = (-math->b - sqrt(math->det)) / (2 * math->a);
-		if ((math->t1 < 0 || math->t1 > *t) &&
-			(math->t2 < 0 || math->t2 > *t))
-			return (1);	
-		if (math->t1 > 0 && math->t1 < *t)
-			*t = math->t1;
-		if (math->t2 > 0 && math->t2 < *t)
-			*t = math->t2;
-		return (0);
+		if ((math->t1 < 0 || math->t1 > lh->t) &&
+			(math->t2 < 0 || math->t2 > lh->t))
+			return (0);	
+		if (math->t1 > 0 && math->t1 < lh->t)
+			lh->t = math->t1;
+		if (math->t2 > 0 && math->t2 < lh->t)
+			lh->t = math->t2;
+		return (1);
 	}
 	else if (math->det == 0)
 	{
 		math->t1 = - 0.5 * math->b / math->a;
-		if (math->t1 < *t)
+		if (math->t1 < lh->t)
 		{
-			*t = math->t1;
-			return (0);
+			lh->t = math->t1;
+			return (1);
 		}
 	}
-	return(1);
+	return(0);
 }
 
-int	hit_sphere(t_vect dir, t_obj *cam, t_obj sp, double *t)
+int	hit_sphere(t_vect dir, t_obj *cam, t_obj sp, t_last_hit *lh)
 {
 	t_vect	v_cam;
 	t_math	math;
@@ -55,7 +55,10 @@ int	hit_sphere(t_vect dir, t_obj *cam, t_obj sp, double *t)
 	math.c = dot(v_cam, v_cam) - (sp.u.sphere.diam / 2) * (sp.u.sphere.diam / 2);
 	math.det = math.b * math.b - 4 * math.a * math.c;
 
-	if (near_sphere(&math, t) == 0)
-		return (0);
-	return (1);
+	if (near_sphere(&math, lh) == 1)
+	{
+		lh->obj = sp;
+		return (1);
+	}
+	return (0);
 }
