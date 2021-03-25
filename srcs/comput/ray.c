@@ -6,7 +6,7 @@
 /*   By: eriling <eriling@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/22 14:07:16 by eriling           #+#    #+#             */
-/*   Updated: 2021/03/24 15:04:53 by eriling          ###   ########.fr       */
+/*   Updated: 2021/03/25 10:02:22 by eriling          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,37 +15,36 @@
 #include <mlx.h>
 #include <math.h>
 
-void dir_origin(t_vect *dir, t_vect *origin, t_obj *cam, double t)
+int check_hit_figure(t_vect *dir, t_obj *cam, double t, t_obj *obj)
 {
-	dir-> x *= t;
-	dir-> y *= t;
-	dir-> z *= t;
-	origin->x = cam->u.camera.x;
-	origin->y = cam->u.camera.y;
-	origin->z = cam->u.camera.z;
+	if (obj->my_type == sphere)
+		if (hit_sphere(*dir, cam, *obj, &t) == 0)
+			return (0);
+
+	return (1);
 }
 
-int	hit_figure(t_data *img, t_vect *dir, t_obj *cam)
+void	hit_figure(t_data *img, t_vect *dir, t_obj *cam)
 {
 	size_t	i;
 	double t;
-	t_vect inter;
-	t_vect origin;
+	t_vect ray_inter;
+	int hit;
 
 	i = 0;
 	t = DOUBLE_MAX;
+	hit = 0;
 	while (sg_dyn()->size > i)
 	{
-		if (sg_dyn()->obj[i]->my_type == sphere)
-			if (hit_sphere(*dir, cam, sg_dyn()->obj[i], &t) == 0)
-				my_mlx_pixel_put(img, img->x, img->y, rgb_to_int(sg_dyn()->obj[i])); // at the end
-
-		
+		if(check_hit_figure(dir, cam, t, sg_dyn()->obj[i]) == 0)
+		{
+			hit = 1;
+			my_mlx_pixel_put(img, img->x, img->y, rgb_to_int(sg_dyn()->obj[i])); 
+		}
 		i++;
 	}
-	dir_origin(dir, &origin, cam, t);
-	inter = vect_sum(origin, *dir);
-	return (0);
+	if (hit == 1)
+		ray_inter = vect_sum(vect_origin(cam), scale(*dir, t));
 }
 
 void	ray(t_data *img, double pixel_len, t_obj *cam)

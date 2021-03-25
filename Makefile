@@ -6,7 +6,7 @@
 #    By: eriling <eriling@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/01/27 10:54:58 by eriling           #+#    #+#              #
-#    Updated: 2021/03/24 11:32:31 by eriling          ###   ########.fr        #
+#    Updated: 2021/03/25 08:44:46 by eriling          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -24,7 +24,7 @@ FILES_NICO = main.c file_rt.c parse.c parse_resolution.c parse_ambient.c \
 			singleton.c sg_dyn.c dynarr_cpy.c dynarr_new.c dynarr_push.c dynarr_realloc.c \
 			print_struct.c print_dynarr.c print_camera.c print_light.c print_sphere.c print_plane.c \
 			print_square.c print_cylinder.c print_triangle.c dynarr_freeall.c hook_function.c ft_abs.c \
-			rgb_to_int.c dot_product.c my_mlx_pixel_put.c
+			rgb_to_int.c vect_comput.c my_mlx_pixel_put.c
 
 SRC_PATH = $(shell find srcs -type d)
 vpath %.c $(foreach dir, $(SRC_PATH), $(dir))
