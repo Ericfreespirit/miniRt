@@ -6,7 +6,7 @@
 /*   By: eriling <eriling@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/22 14:09:13 by eriling           #+#    #+#             */
-/*   Updated: 2021/03/25 17:10:50 by eriling          ###   ########.fr       */
+/*   Updated: 2021/03/26 11:47:14 by eriling          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,16 +34,41 @@ t_vect vect_sum(t_vect v1, t_vect v2)
 	return (res);
 }
 
-t_vect vect_origin(t_obj *cam)
+t_vect init_vect(t_vect *v)
+{
+	v->x = 0;
+	v->y = 0;
+	v->z = 0;
+
+	return (*v);
+}
+
+t_vect vect_obj(t_obj obj)
 {
 	t_vect res;
 	
-	res.x = cam->u.camera.x;
-	res.y = cam->u.camera.y;
-	res.z = cam->u.camera.z;
-
+	init_vect(&res);
+	if (obj.my_type == camera)
+	{
+		res.x = obj.u.camera.x;
+		res.y = obj.u.camera.y;
+		res.z = obj.u.camera.z;
+	}
+	else if (obj.my_type == sphere)
+	{
+		res.x = obj.u.sphere.x;
+		res.y = obj.u.sphere.y;
+		res.z = obj.u.sphere.z;
+	}
+	else if (obj.my_type == light)
+	{
+		res.x = obj.u.light.x;
+		res.y = obj.u.light.y;
+		res.z = obj.u.light.z;
+	}
 	return (res);
 }
+
 
 t_vect scale(t_vect v1, double t)
 {
@@ -56,14 +81,14 @@ t_vect scale(t_vect v1, double t)
 	return (res);
 }
 
-t_vect vect_light(t_l l)
+
+t_vect vect_distance(t_vect v1, t_vect v2)
 {
-	t_vect res;
-	
-	res.x =  l.x;
-	res.y =  l.y;
-	res.z =  l.z;
+	t_vect res;	
+
+	res.x = v1.x - v2.x;
+	res.y = v1.y - v2.y;
+	res.z = v1.z - v2.z;
 
 	return (res);
-	
 }

@@ -6,7 +6,7 @@
 /*   By: eriling <eriling@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/17 09:04:33 by eriling           #+#    #+#             */
-/*   Updated: 2021/03/25 16:07:07 by eriling          ###   ########.fr       */
+/*   Updated: 2021/03/26 10:45:13 by eriling          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,6 @@ int	all_cam_view(t_data *img)
 	double	vp_width;
 	double	vp_height;
 	double	ratio;
-	//double	pixel_len;
 	size_t	i;
 
 	i = 0;
