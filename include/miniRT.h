@@ -6,7 +6,7 @@
 /*   By: eriling <eriling@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/27 10:54:46 by eriling           #+#    #+#             */
-/*   Updated: 2021/03/26 11:40:09 by eriling          ###   ########.fr       */
+/*   Updated: 2021/03/29 13:34:51 by eriling          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,7 +66,7 @@ int		switch_rt(int key, t_vars *vars);
 void	my_mlx_pixel_put(t_data *data, int x, int y, int color);
 void	comput(t_data *img, t_vars *vars);
 double	ft_abs(double a);
-void	ray(t_data *img, double pixel_len, t_obj cam);
+void	ray(t_data *img, double pixel_len, t_obj *cam);
 double	dot(t_vect v1, t_vect v2);
 int		hit_sphere(t_vect dir, t_vect origin, t_data *img, t_obj sp);
 void	my_mlx_pixel_put(t_data *data, int x, int y, int color);

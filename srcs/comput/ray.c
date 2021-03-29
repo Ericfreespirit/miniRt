@@ -6,7 +6,7 @@
 /*   By: eriling <eriling@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/22 14:07:16 by eriling           #+#    #+#             */
-/*   Updated: 2021/03/26 11:41:12 by eriling          ###   ########.fr       */
+/*   Updated: 2021/03/29 15:02:12 by eriling          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,7 @@ void	hit_light(t_vect dir, t_vect origin, t_obj *light, t_data *img)
 	t_data fig_to_light;
 	int hit;
 	double angle;
+	int final_color;
 
 	i = 0;
 	fig_to_light.t = DOUBLE_MAX;
@@ -42,16 +43,9 @@ void	hit_light(t_vect dir, t_vect origin, t_obj *light, t_data *img)
 	if (hit == 0)
 	{
 		angle = cos(dot(origin, vect_obj(*light)));
-		//final_color();
-		//my_mlx_pixel_put(t_data *data, int x, int y, int color);
+		final_color = rgb_to_int(img->obj) * rgb_to_int(light) * angle;
+	//	my_mlx_pixel_put(img, img->x, img->y, 16200457);
 	}
-	//display ambiante
-}
-
-void add_ambiante(t_data *img)
-{
-	// 1. search type of obj
-	// 2. put obj color in img color
 }
 
 void	hit_figure(t_data *img, t_vect dir, t_vect origin)
@@ -80,7 +74,6 @@ void	hit_figure(t_data *img, t_vect dir, t_vect origin)
 			i++;
 		}
 	}
-	//add_ambiante(img);
 }
 
 t_vect normal(int x, int y, double pixel_len)
@@ -99,7 +92,7 @@ t_vect normal(int x, int y, double pixel_len)
 	return (dir);
 }
 
-void	ray(t_data *img, double pixel_len, t_obj cam)
+void	ray(t_data *img, double pixel_len, t_obj *cam)
 {
 	t_vect	dir;
 
@@ -110,7 +103,7 @@ void	ray(t_data *img, double pixel_len, t_obj cam)
 		while (img->x < singleton()->r_x)
 		{
 			dir = normal(img->x, img->y, pixel_len);
-			hit_figure(&img, dir, vect_obj(cam));
+			hit_figure(img, dir, vect_obj(*cam));			
 			img->x++;
 		}
 		img->y++;
