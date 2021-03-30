@@ -6,7 +6,7 @@
 /*   By: eriling <eriling@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/27 10:54:46 by eriling           #+#    #+#             */
-/*   Updated: 2021/03/29 13:34:51 by eriling          ###   ########.fr       */
+/*   Updated: 2021/03/30 13:28:57 by eriling          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,9 +77,8 @@ t_vect	scale(t_vect v1, double t);
 t_vect	vect_light(t_l l);
 t_vect 	vect_distance(t_vect v1, t_vect v2);
 t_vect 	vect_obj(t_obj obj);
-t_vect	normal(int x, int y, double pixel_len);
-
-
-
+t_vect	ray_dir_cam(int x, int y, double pixel_len);
+int		brightness_coeff(int color, double coeff);
+void	add_ambiante(t_data *img);
 
 #endif

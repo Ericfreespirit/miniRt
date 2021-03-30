@@ -6,7 +6,7 @@
 /*   By: eriling <eriling@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/17 09:04:33 by eriling           #+#    #+#             */
-/*   Updated: 2021/03/29 18:25:49 by eriling          ###   ########.fr       */
+/*   Updated: 2021/03/30 09:47:32 by eriling          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,43 +15,30 @@
 #include <mlx.h>
 #include <math.h>
 
+int brightness_coeff(int color, double coeff)
+{
+	int r;
+	int g;
+	int b;
 
+	r = (color >> 16) & 0b11111111;
+	g = (color >> 8) & 0b11111111;
+	b = (color >> 0) & 0b11111111;
+	r *= coeff;
+	g *= coeff;
+	b *= coeff;
+	color = (r << 16) + (g << 8) + (b << 0);
+	return(color);
+}
 
 void add_ambiante(t_data *img)
 {
 	int color;
-	double r = (double)(singleton()->a_r / 255);
-	double g = (double)(singleton()->a_g / 255);
-	double b = (double)(singleton()->a_b / 255);
-	
-	r *= singleton()->a_ran_light;
-	g *= singleton()->a_ran_light;
-	b *= singleton()->a_ran_light;
+	int rgb;
 
-	r = fmin(r, 1.0);
-	g = fmin(g, 1.0);
-	b = fmin(b, 1.0);
-
-	r *= 255.;
-	g *= 255.;
-	b *= 255.;
-	
-	int r_int = (int)round(r);
-	int g_int = (int)round(g);
-	int b_int = (int)round(b);
-
-	color = 65536 * r_int + 256 * g_int + b_int;
-	img->y = 0;
-	while (img->y < singleton()->r_y)
-	{
-		img->x = 0;
-		while (img->x < singleton()->r_x)
-		{
-			my_mlx_pixel_put(img, img->x, img->y, color);
-			img->x++;
-		}
-		img->y++;
-	}
+	rgb = (singleton()->a_r << 16) + (singleton()->a_g << 8) + (singleton()->a_b << 0);
+	color = brightness_coeff(rgb, singleton()->a_ran_light);
+	my_mlx_pixel_put(img, img->x, img->y, color);
 }
 
 int	all_cam_view(t_data *img)
@@ -63,7 +50,6 @@ int	all_cam_view(t_data *img)
 
 	i = 0;
 	ratio = (double)singleton()->r_y / (double)singleton()->r_x;
-	add_ambiante(img);
 	while (sg_dyn()->size > i)
 	{
 		if (sg_dyn()->obj[i]->my_type == camera)

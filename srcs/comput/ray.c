@@ -6,7 +6,7 @@
 /*   By: eriling <eriling@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/22 14:07:16 by eriling           #+#    #+#             */
-/*   Updated: 2021/03/29 15:02:12 by eriling          ###   ########.fr       */
+/*   Updated: 2021/03/30 13:29:25 by eriling          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,16 +36,18 @@ void	hit_light(t_vect dir, t_vect origin, t_obj *light, t_data *img)
 	hit = 0;
 	while (sg_dyn()->size > i)
 	{
-		if(check_hit_figure(dir, origin, &fig_to_light, sg_dyn()->obj[i]) == 0)
+		if(check_hit_figure(dir, origin, &fig_to_light, sg_dyn()->obj[i]) == 1)
 			hit = 1;
 		i++;
 	}
 	if (hit == 0)
 	{
 		angle = cos(dot(origin, vect_obj(*light)));
+		printf("angle:%f\n", angle);
 		final_color = rgb_to_int(img->obj) * rgb_to_int(light) * angle;
-	//	my_mlx_pixel_put(img, img->x, img->y, 16200457);
+		my_mlx_pixel_put(img, img->x, img->y, final_color);
 	}
+	add_ambiante(img);
 }
 
 void	hit_figure(t_data *img, t_vect dir, t_vect origin)
@@ -68,15 +70,18 @@ void	hit_figure(t_data *img, t_vect dir, t_vect origin)
 		while (sg_dyn()->size > i)
 		{
 			if (sg_dyn()->obj[i]->my_type == light)
-				hit_light(normal(img->x, img->y, img->pixel_len), 
+			{
+				
+				hit_light(normal(img->x, img->y, img->pixel_len),
 					vect_sum(origin, scale(dir, img->t)), 
 					sg_dyn()->obj[i], img);
+			}
 			i++;
 		}
-	}
+	}	
 }
 
-t_vect normal(int x, int y, double pixel_len)
+t_vect ray_dir_cam(int x, int y, double pixel_len)
 {
 	t_vect dir;
 	double norma;
@@ -102,7 +107,7 @@ void	ray(t_data *img, double pixel_len, t_obj *cam)
 		img->x = 0;
 		while (img->x < singleton()->r_x)
 		{
-			dir = normal(img->x, img->y, pixel_len);
+			dir = ray_dir_cam(img->x, img->y, pixel_len);
 			hit_figure(img, dir, vect_obj(*cam));			
 			img->x++;
 		}
