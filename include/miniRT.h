@@ -6,7 +6,7 @@
 /*   By: eriling <eriling@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/27 10:54:46 by eriling           #+#    #+#             */
-/*   Updated: 2021/03/30 13:28:57 by eriling          ###   ########.fr       */
+/*   Updated: 2021/03/30 18:04:28 by eriling          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,7 +66,7 @@ int		switch_rt(int key, t_vars *vars);
 void	my_mlx_pixel_put(t_data *data, int x, int y, int color);
 void	comput(t_data *img, t_vars *vars);
 double	ft_abs(double a);
-void	ray(t_data *img, double pixel_len, t_obj *cam);
+void	ray(t_data *img, t_obj *cam);
 double	dot(t_vect v1, t_vect v2);
 int		hit_sphere(t_vect dir, t_vect origin, t_data *img, t_obj sp);
 void	my_mlx_pixel_put(t_data *data, int x, int y, int color);
@@ -76,9 +76,14 @@ t_vect	vect_cam(t_obj *cam);
 t_vect	scale(t_vect v1, double t);
 t_vect	vect_light(t_l l);
 t_vect 	vect_distance(t_vect v1, t_vect v2);
-t_vect 	vect_obj(t_obj obj);
-t_vect	ray_dir_cam(int x, int y, double pixel_len);
+t_vect 	vect_obj(t_obj *obj);
+t_vect	ray_dir_cam(t_data img);
 int		brightness_coeff(int color, double coeff);
 void	add_ambiante(t_data *img);
+t_vect	ray_dir_obj(t_vect v1, t_vect v2);
+int		mix_rgb(int c1, int c2);
+int		rgb_to_int_ambiante(void);
+t_vect	normalize(t_vect v);
+
 
 #endif

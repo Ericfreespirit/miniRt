@@ -6,7 +6,7 @@
 /*   By: eriling <eriling@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/17 09:04:33 by eriling           #+#    #+#             */
-/*   Updated: 2021/03/30 09:47:32 by eriling          ###   ########.fr       */
+/*   Updated: 2021/03/30 17:12:26 by eriling          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,7 +58,7 @@ int	all_cam_view(t_data *img)
 						/ 57.29)) * 2;
 			vp_height = vp_width * ratio;
 			img->pixel_len = vp_width / (double)singleton()->r_x;
-			ray(img, img->pixel_len, sg_dyn()->obj[i]);
+			ray(img, sg_dyn()->obj[i]);
 		}
 		i++;
 	}
