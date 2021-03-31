@@ -6,7 +6,7 @@
 /*   By: eriling <eriling@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/22 14:07:16 by eriling           #+#    #+#             */
-/*   Updated: 2021/03/31 11:40:23 by eriling          ###   ########.fr       */
+/*   Updated: 2021/03/31 14:42:09 by eriling          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,6 @@ void	hit_light(t_vect dir, t_vect origin, t_obj *light, t_data *img)
 	size_t	i;
 	t_data fig_to_light;
 	int hit;
-	int final_color;
 	double coeff;
 	t_vect v_obj;
 
@@ -64,9 +63,9 @@ void	hit_light(t_vect dir, t_vect origin, t_obj *light, t_data *img)
 		coeff = dot(normalize(vect_distance(origin, v_obj)),normalize(vect_distance(vect_obj(light), origin)));
 		if (coeff < 0)
 			coeff = 0;
-		final_color = brightness_coeff(rgb_to_int(img->obj), coeff);
-		final_color = color_final(coeff, rgb_to_int(img->obj),rgb_to_int(light));
-		my_mlx_pixel_put(img, img->x, img->y, final_color);
+		coeff *= light->u.light.rat_l;
+		img->total_light_coeff += coeff;
+		img->total_light_color = sum_rgb(img->total_light_color, brightness_coeff(rgb_to_int(light), coeff));
 		return ;
 	}
 	add_ambiante(img);
@@ -76,11 +75,14 @@ void	hit_figure(t_data *img, t_vect dir, t_vect origin)
 {
 	size_t		i;
 	int			hit;
+	int			final_color;
 	t_vect		v_light;
 
 	i = 0;
 	img->t = DOUBLE_MAX;
 	hit = 0;
+	img->total_light_coeff = 0;
+	img->total_light_color = 0;
 	while (sg_dyn()->size > i)
 	{
 		if (check_hit_figure(dir, origin, img, sg_dyn()->obj[i]) == 1)
@@ -103,6 +105,9 @@ void	hit_figure(t_data *img, t_vect dir, t_vect origin)
 			}
 			i++;
 		}
+		final_color = brightness_coeff(img->color, img->total_light_coeff);
+		final_color = mix_rgb(img->total_light_color, final_color, img->total_light_coeff);
+		my_mlx_pixel_put(img, img->x, img->y, final_color);
 	}	
 }
 
@@ -135,7 +140,7 @@ void	ray(t_data *img, t_obj *cam)
 		while (img->x < singleton()->r_x)
 		{
 			dir = ray_dir_cam(*img);
-			hit_figure(img, dir, vect_obj(cam));			
+			hit_figure(img, dir, vect_obj(cam));		
 			img->x++;
 		}
 		img->y++;

@@ -6,7 +6,7 @@
 /*   By: eriling <eriling@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/27 10:54:46 by eriling           #+#    #+#             */
-/*   Updated: 2021/03/31 12:02:20 by eriling          ###   ########.fr       */
+/*   Updated: 2021/03/31 12:06:10 by eriling          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,6 +82,7 @@ int		brightness_coeff(int color, double coeff);
 void	add_ambiante(t_data *img);
 t_vect	ray_dir_obj(t_vect v1, t_vect v2);
 int		mix_rgb(int c1, int c2, double coeff);
+int		sum_rgb(int c1, int c2);
 int		rgb_to_int_ambiante(void);
 t_vect	normalize(t_vect v);
 

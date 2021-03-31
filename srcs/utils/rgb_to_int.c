@@ -6,7 +6,7 @@
 /*   By: eriling <eriling@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/22 14:05:53 by eriling           #+#    #+#             */
-/*   Updated: 2021/03/31 12:03:19 by eriling          ###   ########.fr       */
+/*   Updated: 2021/03/31 13:50:55 by eriling          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,8 @@ int mix_rgb(int c1, int c2, double coeff)
 	t_vect v_c2;
 	t_vect res;
 
+	if (coeff > 1)
+		coeff = 1;
 	v_c1 = color_to_rgb(c1);
 	v_c2 = color_to_rgb(c2);
 	res.x = coeff * v_c1.x + (1.0 - coeff) * v_c2.x;
@@ -48,7 +50,7 @@ int mix_rgb(int c1, int c2, double coeff)
 	return(color);
 }
 
-int add_rgb(int c1, int c2)
+int sum_rgb(int c1, int c2)
 {
 	int color;
 	t_vect v_c1;

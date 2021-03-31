@@ -6,7 +6,7 @@
 /*   By: eriling <eriling@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/22 14:08:28 by eriling           #+#    #+#             */
-/*   Updated: 2021/03/31 11:37:17 by eriling          ###   ########.fr       */
+/*   Updated: 2021/03/31 14:08:47 by eriling          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,6 +55,7 @@ int	hit_sphere(t_vect dir, t_vect origin, t_data *img, t_obj *sp)
 	if (near_sphere(&math, img) == 1)
 	{
 		img->obj = sp;
+		img->color = rgb_to_int(sp);
 		return (1);
 	}
 	return (0);

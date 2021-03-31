@@ -6,7 +6,7 @@
 /*   By: eriling <eriling@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/17 09:04:33 by eriling           #+#    #+#             */
-/*   Updated: 2021/03/30 17:12:26 by eriling          ###   ########.fr       */
+/*   Updated: 2021/03/31 13:50:59 by eriling          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,8 @@ int brightness_coeff(int color, double coeff)
 	int g;
 	int b;
 
+	if (coeff > 1)
+		coeff = 1;
 	r = (color >> 16) & 0b11111111;
 	g = (color >> 8) & 0b11111111;
 	b = (color >> 0) & 0b11111111;
