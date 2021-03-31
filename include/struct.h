@@ -6,7 +6,7 @@
 /*   By: eriling <eriling@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/02 10:55:05 by eriling           #+#    #+#             */
-/*   Updated: 2021/03/29 14:22:32 by eriling          ###   ########.fr       */
+/*   Updated: 2021/03/31 11:33:47 by eriling          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -162,6 +162,7 @@ typedef struct s_data
 	int			y;
 	double		t;
 	t_obj		*obj;
+	int			id_obj;
 	int			color;
 	double		pixel_len;
 }				t_data;

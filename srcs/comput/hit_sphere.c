@@ -6,7 +6,7 @@
 /*   By: eriling <eriling@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/22 14:08:28 by eriling           #+#    #+#             */
-/*   Updated: 2021/03/30 16:21:34 by eriling          ###   ########.fr       */
+/*   Updated: 2021/03/31 11:37:17 by eriling          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,19 +42,19 @@ int near_sphere(t_math *math, t_data *img)
 	return(0);
 }
 
-int	hit_sphere(t_vect dir, t_vect origin, t_data *img, t_obj sp)
+int	hit_sphere(t_vect dir, t_vect origin, t_data *img, t_obj *sp)
 {
 	t_math	math;
 
-	origin = vect_distance(origin, vect_obj(&sp));
+	origin = vect_distance(origin, vect_obj(sp));
 	math.a = 1;
 	math.b = 2.0 * dot(origin, dir);
-	math.c = dot(origin, origin) - (sp.u.sphere.diam / 2) * (sp.u.sphere.diam / 2);
+	math.c = dot(origin, origin) - (sp->u.sphere.diam / 2) * (sp->u.sphere.diam / 2);
 	math.det = math.b * math.b - 4 * math.a * math.c;
 
 	if (near_sphere(&math, img) == 1)
 	{
-		img->obj = &sp;
+		img->obj = sp;
 		return (1);
 	}
 	return (0);

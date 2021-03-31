@@ -6,7 +6,7 @@
 /*   By: eriling <eriling@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/27 10:54:46 by eriling           #+#    #+#             */
-/*   Updated: 2021/03/30 18:04:28 by eriling          ###   ########.fr       */
+/*   Updated: 2021/03/31 12:02:20 by eriling          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,7 +68,7 @@ void	comput(t_data *img, t_vars *vars);
 double	ft_abs(double a);
 void	ray(t_data *img, t_obj *cam);
 double	dot(t_vect v1, t_vect v2);
-int		hit_sphere(t_vect dir, t_vect origin, t_data *img, t_obj sp);
+int		hit_sphere(t_vect dir, t_vect origin, t_data *img, t_obj *sp);
 void	my_mlx_pixel_put(t_data *data, int x, int y, int color);
 int		rgb_to_int(t_obj *obj);
 t_vect 	vect_sum(t_vect v1, t_vect v2);
@@ -81,9 +81,10 @@ t_vect	ray_dir_cam(t_data img);
 int		brightness_coeff(int color, double coeff);
 void	add_ambiante(t_data *img);
 t_vect	ray_dir_obj(t_vect v1, t_vect v2);
-int		mix_rgb(int c1, int c2);
+int		mix_rgb(int c1, int c2, double coeff);
 int		rgb_to_int_ambiante(void);
 t_vect	normalize(t_vect v);
+
 
 
 #endif

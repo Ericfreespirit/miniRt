@@ -6,7 +6,7 @@
 /*   By: eriling <eriling@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/22 14:07:16 by eriling           #+#    #+#             */
-/*   Updated: 2021/03/30 18:26:14 by eriling          ###   ########.fr       */
+/*   Updated: 2021/03/31 11:40:23 by eriling          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,9 +18,25 @@
 int check_hit_figure(t_vect dir, t_vect origin, t_data *img, t_obj *obj)
 {
 	if (obj->my_type == sphere)
-		if (hit_sphere(dir, origin, img, *obj) == 1)
+		if (hit_sphere(dir, origin, img, obj) == 1)
 			return (1);
 	return (0);
+}
+
+
+int		color_final(double coeff_light, int color_obj, int color_light)
+{
+	int final_color;
+	int color_light_total;
+	double coeff_total;
+
+	coeff_total = coeff_light + singleton()->a_ran_light;
+	color_light_total = mix_rgb(color_light,rgb_to_int_ambiante(), coeff_light / coeff_total);
+	if (coeff_total > 1)
+		coeff_total = 1;
+	final_color = mix_rgb(color_light_total, color_obj, 0.5);
+	final_color = brightness_coeff(final_color, coeff_total);
+	return (final_color);
 }
 
 void	hit_light(t_vect dir, t_vect origin, t_obj *light, t_data *img)
@@ -29,6 +45,7 @@ void	hit_light(t_vect dir, t_vect origin, t_obj *light, t_data *img)
 	t_data fig_to_light;
 	int hit;
 	int final_color;
+	double coeff;
 	t_vect v_obj;
 
 	i = 0;
@@ -37,36 +54,21 @@ void	hit_light(t_vect dir, t_vect origin, t_obj *light, t_data *img)
 	v_obj = vect_obj(img->obj);
 	while (sg_dyn()->size > i)
 	{
-		if (i != 2)
+		if (i != img->id_obj)
 			if(check_hit_figure(dir, origin, &fig_to_light, sg_dyn()->obj[i]) == 1)
 				hit = 1;
 		i++;
 	}
-	if (1/*hit == 0*/)
+	if (hit == 0)
 	{
-		if (img->y == 390)
-			printf("HA! %f\n", dot(
-/* normale de l'objet : 			*/ normalize(vect_distance(origin, v_obj))
- ,
-/* vecteur intersection->lumiere :	*/ normalize(vect_distance(vect_obj(light), origin))
-		));
-		final_color = brightness_coeff(rgb_to_int(img->obj), dot(
-/* normale de l'objet : 			*/ normalize(vect_distance(origin, v_obj))
- ,
-/* vecteur intersection->lumiere :	*/ normalize(vect_distance(vect_obj(light), origin))
-		));
-		//angle = vect_distance(vect_obj(light), origin);
-		//final_color = mix_rgb(final_color, rgb_to_int(img->obj));
-		//final_color = mix_rgb(final_color, rgb_to_int_ambiante());
+		coeff = dot(normalize(vect_distance(origin, v_obj)),normalize(vect_distance(vect_obj(light), origin)));
+		if (coeff < 0)
+			coeff = 0;
+		final_color = brightness_coeff(rgb_to_int(img->obj), coeff);
+		final_color = color_final(coeff, rgb_to_int(img->obj),rgb_to_int(light));
 		my_mlx_pixel_put(img, img->x, img->y, final_color);
 		return ;
 	}
-	else
-	{
-		if (img->y == 390)
-			printf("HAHA! %d\n", img->x);
-	}
-	
 	add_ambiante(img);
 }
 
@@ -82,7 +84,10 @@ void	hit_figure(t_data *img, t_vect dir, t_vect origin)
 	while (sg_dyn()->size > i)
 	{
 		if (check_hit_figure(dir, origin, img, sg_dyn()->obj[i]) == 1)
+		{
+			img->id_obj = i;
 			hit = 1;
+		}
 		i++;
 	}
 	if (hit == 1)
