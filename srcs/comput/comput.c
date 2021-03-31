@@ -6,7 +6,7 @@
 /*   By: eriling <eriling@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/17 09:04:33 by eriling           #+#    #+#             */
-/*   Updated: 2021/03/31 13:50:59 by eriling          ###   ########.fr       */
+/*   Updated: 2021/03/31 14:49:03 by eriling          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,16 +31,6 @@ int brightness_coeff(int color, double coeff)
 	b *= coeff;
 	color = (r << 16) + (g << 8) + (b << 0);
 	return(color);
-}
-
-void add_ambiante(t_data *img)
-{
-	int color;
-	int rgb;
-
-	rgb = (singleton()->a_r << 16) + (singleton()->a_g << 8) + (singleton()->a_b << 0);
-	color = brightness_coeff(rgb, singleton()->a_ran_light);
-	my_mlx_pixel_put(img, img->x, img->y, color);
 }
 
 int	all_cam_view(t_data *img)
