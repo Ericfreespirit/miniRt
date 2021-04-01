@@ -6,7 +6,7 @@
 /*   By: eriling <eriling@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/22 14:07:16 by eriling           #+#    #+#             */
-/*   Updated: 2021/03/31 14:51:31 by eriling          ###   ########.fr       */
+/*   Updated: 2021/04/01 09:08:35 by eriling          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,7 +53,7 @@ void	hit_light(t_vect dir, t_vect origin, t_obj *light, t_data *img)
 	v_obj = vect_obj(img->obj);
 	while (sg_dyn()->size > i)
 	{
-		if (i != img->id_obj)
+		if (i != (size_t)img->id_obj)
 			if(check_hit_figure(dir, origin, &fig_to_light, sg_dyn()->obj[i]) == 1)
 				hit = 1;
 		i++;
@@ -104,10 +104,8 @@ void	hit_figure(t_data *img, t_vect dir, t_vect origin)
 			}
 			i++;
 		}
-		img->total_light_coeff += singleton()->a_ran_light;
 		img->total_light_color = sum_rgb(img->total_light_color, brightness_coeff(rgb_to_int_ambiante(), singleton()->a_ran_light));
-		final_color = brightness_coeff(img->color, img->total_light_coeff);
-		final_color = mix_rgb(img->total_light_color, final_color, img->total_light_coeff);
+		final_color = mult_rgb(img->color, img->total_light_color);
 		my_mlx_pixel_put(img, img->x, img->y, final_color);
 	}	
 }

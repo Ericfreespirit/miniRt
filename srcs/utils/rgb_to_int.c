@@ -6,7 +6,7 @@
 /*   By: eriling <eriling@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/22 14:05:53 by eriling           #+#    #+#             */
-/*   Updated: 2021/03/31 13:50:55 by eriling          ###   ########.fr       */
+/*   Updated: 2021/04/01 09:02:30 by eriling          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,29 @@ t_vect color_to_rgb(int color)
 	return (rgb);
 }
 
+
+int mult_rgb(int c_obj, int c_light)
+{
+	int color;
+	t_vect v_c_obj;
+	t_vect v_c_light;
+	t_vect res;
+
+	v_c_obj = color_to_rgb(c_obj);
+	v_c_light = color_to_rgb(c_light);
+	res.x = (v_c_obj.x * v_c_light.x) / 256.0;
+	res.y = (v_c_obj.y * v_c_light.y) / 256.0;
+	res.z = (v_c_obj.z * v_c_light.z) / 256.0;
+	if (res.x > 255.0)
+		res.x = 255.0;
+	if (res.y > 255.0)
+		res.y = 255.0;
+	if (res.z > 255.0)
+		res.z = 255.0;
+	color = 65536 * (int)res.x + 256 * (int)res.y + (int)res.z;
+	return(color);
+	
+}
 
 int mix_rgb(int c1, int c2, double coeff)
 {
