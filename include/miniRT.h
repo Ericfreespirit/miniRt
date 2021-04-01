@@ -6,7 +6,7 @@
 /*   By: eriling <eriling@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/27 10:54:46 by eriling           #+#    #+#             */
-/*   Updated: 2021/03/31 12:06:10 by eriling          ###   ########.fr       */
+/*   Updated: 2021/04/01 09:25:55 by eriling          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,7 +85,7 @@ int		mix_rgb(int c1, int c2, double coeff);
 int		sum_rgb(int c1, int c2);
 int		rgb_to_int_ambiante(void);
 t_vect	normalize(t_vect v);
-
+int		mult_rgb(int c_obj, int c_light);
 
 
 #endif
