@@ -6,11 +6,12 @@
 /*   By: eriling <eriling@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/28 08:36:31 by eriling           #+#    #+#             */
-/*   Updated: 2021/03/22 09:32:07 by eriling          ###   ########.fr       */
+/*   Updated: 2021/04/03 13:54:51 by eriling          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "miniRT.h"
+#include "parse.h"
 
 int	parse(char *line)
 {

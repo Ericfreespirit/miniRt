@@ -6,11 +6,12 @@
 /*   By: eriling <eriling@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/29 09:57:42 by eriling           #+#    #+#             */
-/*   Updated: 2021/02/18 16:45:24 by eriling          ###   ########.fr       */
+/*   Updated: 2021/04/03 13:55:07 by eriling          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "miniRT.h"
+#include "parse.h"
 
 int	check_data_in_triangle(t_tr triangle_data)
 {

@@ -6,11 +6,12 @@
 /*   By: eriling <eriling@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/28 08:45:08 by eriling           #+#    #+#             */
-/*   Updated: 2021/02/18 16:51:32 by eriling          ###   ########.fr       */
+/*   Updated: 2021/04/03 13:56:00 by eriling          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "miniRT.h"
+#include "parse.h"
 
 int	is_single_data(char **line)
 {

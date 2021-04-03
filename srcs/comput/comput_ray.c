@@ -1,28 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   parse_resolution.c                                 :+:      :+:    :+:   */
+/*   comput_ray.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: eriling <eriling@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/01/29 09:57:13 by eriling           #+#    #+#             */
-/*   Updated: 2021/04/03 13:55:11 by eriling          ###   ########.fr       */
+/*   Created: 2021/04/03 14:47:53 by eriling           #+#    #+#             */
+/*   Updated: 2021/04/03 14:48:34 by eriling          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "miniRT.h"
-#include "struct.h"
-#include "parse.h"
+#include <miniRT.h>
+#include <comput.h>
+#include <struct.h>
 
-int	parse_resolution(char **line)
+t_vect ray_dir_obj(t_vect v1, t_vect v2)
 {
-	if (singleton()->r_x > 0 || singleton()->r_y > 0)
-		return (1);
-	(*line)++;
-	singleton()->r_x = ft_atoi_2(line);
-	singleton()->r_y = ft_atoi_2(line);
-	if (**line == 0)
-		if (singleton()->r_x >= 0 && singleton()->r_y >= 0)
-			return (0);
-	return (1);
+	t_vect dir;
+	
+	dir = vect_distance(v1, v2);
+	return (normalize(dir));
+}
+
+t_vect ray_dir_cam(t_data img)
+{
+	t_vect dir;
+	
+	dir.x = (img.x - (singleton()->r_x / 2)) * img.pixel_len;
+	dir.y = ((singleton()->r_y / 2) - img.y) * img.pixel_len;
+	dir.z = 1;
+	return (normalize(dir));
 }

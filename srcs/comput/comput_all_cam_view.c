@@ -1,39 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   comput.c                                           :+:      :+:    :+:   */
+/*   comput_all_cam_view.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: eriling <eriling@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/17 09:04:33 by eriling           #+#    #+#             */
-/*   Updated: 2021/03/31 14:49:03 by eriling          ###   ########.fr       */
+/*   Updated: 2021/04/03 14:43:29 by eriling          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "miniRT.h"
 #include "struct.h"
+#include "comput.h"
 #include <mlx.h>
 #include <math.h>
 
-int brightness_coeff(int color, double coeff)
-{
-	int r;
-	int g;
-	int b;
-
-	if (coeff > 1)
-		coeff = 1;
-	r = (color >> 16) & 0b11111111;
-	g = (color >> 8) & 0b11111111;
-	b = (color >> 0) & 0b11111111;
-	r *= coeff;
-	g *= coeff;
-	b *= coeff;
-	color = (r << 16) + (g << 8) + (b << 0);
-	return(color);
-}
-
-int	all_cam_view(t_data *img)
+void	comput_all_cam_view(t_data *img, t_vars *vars)
 {
 	double	vp_width;
 	double	vp_height;
@@ -54,12 +37,5 @@ int	all_cam_view(t_data *img)
 		}
 		i++;
 	}
-	return (0);
-}
-
-void	comput(t_data *img, t_vars *vars)
-{
-	if (all_cam_view(img) == 1)
-		printf("Error: all_cam_view()");
 	mlx_put_image_to_window(vars->mlx, vars->mlx_win, img->img, 0, 0);
 }

@@ -6,12 +6,15 @@
 /*   By: eriling <eriling@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/15 14:07:46 by eriling           #+#    #+#             */
-/*   Updated: 2021/03/24 11:33:35 by eriling          ###   ########.fr       */
+/*   Updated: 2021/04/03 14:09:41 by eriling          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "miniRT.h"
 #include "struct.h"
+#include "parse.h"
+#include "comput.h"
+#include "print_struct.h"
 #include <mlx.h>
 
 int	error_parse(int error, int fd)

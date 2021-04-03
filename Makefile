@@ -6,7 +6,7 @@
 #    By: eriling <eriling@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/01/27 10:54:58 by eriling           #+#    #+#              #
-#    Updated: 2021/03/29 14:44:48 by eriling          ###   ########.fr        #
+#    Updated: 2021/04/03 15:01:58 by eriling          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,20 +17,20 @@ HEAD = -Iinclude -Ilibft -Iminilibx-linux
 CFLAGS = -Wall -Wextra $(DEBUG)
 #DEBUG = -fsanitize=address -g3
 
-FILES_NICO = main.c file_rt.c parse.c parse_resolution.c parse_ambient.c \
+FILES = main.c file_rt.c parse.c parse_resolution.c parse_ambient.c \
 			parse_camera.c parse_light.c parse_sphere.c parse_plane.c \
 			parse_square.c parse_cylinder.c parse_triangle.c is_single_data.c is_mult_data.c \
-			add_rgb.c add_3_float.c mlx_function.c comput.c hit_sphere.c ray.c \
+			add_rgb.c add_3_float.c mlx_function.c comput_all_cam_view.c hit_sphere.c ray.c \
 			singleton.c sg_dyn.c dynarr_cpy.c dynarr_new.c dynarr_push.c dynarr_realloc.c \
 			print_struct.c print_dynarr.c print_camera.c print_light.c print_sphere.c print_plane.c \
 			print_square.c print_cylinder.c print_triangle.c dynarr_freeall.c hook_function.c ft_abs.c \
-			rgb_to_int.c vect_comput.c my_mlx_pixel_put.c
+			rgb_to_int.c vect_comput.c my_mlx_pixel_put.c comput_color.c comput_ray.c comput_light.c
 
 SRC_PATH = $(shell find srcs -type d)
 vpath %.c $(foreach dir, $(SRC_PATH), $(dir))
 
 OBJ_PATH = objs
-OBJ = $(addprefix $(OBJ_PATH)/, $(FILES_NICO:%.c=%.o))
+OBJ = $(addprefix $(OBJ_PATH)/, $(FILES:%.c=%.o))
 
 all :   $(NAME) 
 

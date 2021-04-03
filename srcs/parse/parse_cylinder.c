@@ -6,12 +6,13 @@
 /*   By: eriling <eriling@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/29 09:56:35 by eriling           #+#    #+#             */
-/*   Updated: 2021/02/18 16:32:19 by eriling          ###   ########.fr       */
+/*   Updated: 2021/04/03 13:55:19 by eriling          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "miniRT.h"
 #include "libft.h"
+#include "parse.h"
 
 int	check_data_in_cylinder(t_cy cylinder_data)
 {

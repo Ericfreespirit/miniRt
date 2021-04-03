@@ -6,11 +6,12 @@
 /*   By: eriling <eriling@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/28 09:16:34 by eriling           #+#    #+#             */
-/*   Updated: 2021/02/18 16:51:04 by eriling          ###   ########.fr       */
+/*   Updated: 2021/04/03 13:55:56 by eriling          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "miniRT.h"
+#include "parse.h"
 
 int	is_single_letter(char **line)
 {

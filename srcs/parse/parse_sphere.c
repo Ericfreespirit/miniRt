@@ -6,12 +6,13 @@
 /*   By: eriling <eriling@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/29 09:57:22 by eriling           #+#    #+#             */
-/*   Updated: 2021/02/18 16:41:32 by eriling          ###   ########.fr       */
+/*   Updated: 2021/04/03 13:55:09 by eriling          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "miniRT.h"
 #include "libft.h"
+#include "parse.h"
 
 int	check_data_in_sphere(t_sp sphere_data)
 {

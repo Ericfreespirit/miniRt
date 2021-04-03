@@ -6,12 +6,13 @@
 /*   By: eriling <eriling@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/29 09:56:49 by eriling           #+#    #+#             */
-/*   Updated: 2021/02/18 16:36:14 by eriling          ###   ########.fr       */
+/*   Updated: 2021/04/03 13:55:18 by eriling          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "miniRT.h"
 #include "libft.h"
+#include "parse.h"
 
 int	check_data_in_light(t_l light_data)
 {

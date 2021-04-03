@@ -6,13 +6,14 @@
 /*   By: eriling <eriling@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/29 09:55:36 by eriling           #+#    #+#             */
-/*   Updated: 2021/02/18 16:24:55 by eriling          ###   ########.fr       */
+/*   Updated: 2021/04/03 13:55:26 by eriling          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "miniRT.h"
 #include "struct.h"
 #include "libft.h"
+#include "parse.h"
 
 int	check_data_in_ambient(void)
 {

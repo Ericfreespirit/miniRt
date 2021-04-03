@@ -6,11 +6,12 @@
 /*   By: eriling <eriling@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/29 09:56:23 by eriling           #+#    #+#             */
-/*   Updated: 2021/03/22 11:31:06 by eriling          ###   ########.fr       */
+/*   Updated: 2021/04/03 13:55:22 by eriling          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "miniRT.h"
+#include "parse.h"
 
 int	check_data_in_camera(t_c camera_data)
 {

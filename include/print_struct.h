@@ -1,28 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   parse_resolution.c                                 :+:      :+:    :+:   */
+/*   print_struct.h                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: eriling <eriling@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/01/29 09:57:13 by eriling           #+#    #+#             */
-/*   Updated: 2021/04/03 13:55:11 by eriling          ###   ########.fr       */
+/*   Created: 2021/04/03 13:58:16 by eriling           #+#    #+#             */
+/*   Updated: 2021/04/03 13:59:17 by eriling          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "miniRT.h"
-#include "struct.h"
-#include "parse.h"
+#ifndef PRINT_STRUCT_H
+# define PRINT_STRUCT_H
 
-int	parse_resolution(char **line)
-{
-	if (singleton()->r_x > 0 || singleton()->r_y > 0)
-		return (1);
-	(*line)++;
-	singleton()->r_x = ft_atoi_2(line);
-	singleton()->r_y = ft_atoi_2(line);
-	if (**line == 0)
-		if (singleton()->r_x >= 0 && singleton()->r_y >= 0)
-			return (0);
-	return (1);
-}
+void	print_camera(size_t i);
+void	print_light(size_t i);
+void	print_sphere(size_t i);
+void	print_plane(size_t i);
+void	print_square(size_t i);
+void	print_cylinder(size_t i);
+void	print_cylinder(size_t i);
+void	print_triangle(size_t i);
+void	print_struct(void);
+void	print_dynarr(void);
+
+#endif

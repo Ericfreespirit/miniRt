@@ -6,12 +6,13 @@
 /*   By: eriling <eriling@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/11 14:51:27 by eriling           #+#    #+#             */
-/*   Updated: 2021/03/22 11:34:37 by eriling          ###   ########.fr       */
+/*   Updated: 2021/04/03 14:00:19 by eriling          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "miniRT.h"
 #include "struct.h"
+#include "print_struct.h"
 
 void	print_dynarr(void)
 {

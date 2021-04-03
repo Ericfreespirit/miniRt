@@ -6,12 +6,13 @@
 /*   By: eriling <eriling@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/22 14:08:28 by eriling           #+#    #+#             */
-/*   Updated: 2021/03/31 14:08:47 by eriling          ###   ########.fr       */
+/*   Updated: 2021/04/03 14:10:29 by eriling          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "miniRT.h"
 #include "struct.h"
+#include "comput.h"
 #include <mlx.h>
 #include <math.h>
 
