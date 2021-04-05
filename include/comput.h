@@ -6,7 +6,7 @@
 /*   By: eriling <eriling@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/03 14:06:41 by eriling           #+#    #+#             */
-/*   Updated: 2021/04/03 15:23:51 by eriling          ###   ########.fr       */
+/*   Updated: 2021/04/05 17:28:10 by eriling          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,10 +32,10 @@ t_vect 	vect_sum(t_vect v1, t_vect v2);
 t_vect	vect_cam(t_obj *cam);
 t_vect	scale(t_vect v1, double t);
 t_vect	vect_light(t_l l);
-t_vect 	vect_distance(t_vect v1, t_vect v2);
 t_vect 	vect_obj(t_obj *obj);
 t_vect	ray_dir_cam(t_data img);
 t_vect	ray_dir_obj(t_vect v1, t_vect v2);
+t_vect	vect_sous(t_vect v1, t_vect v2);
 t_vect	normalize(t_vect v);
 int		color_coeff(int color, double coeff);
 void	add_ambiante(t_data *img);
@@ -45,6 +45,8 @@ int		rgb_to_int_ambiante(void);
 int		mult_rgb(int c_obj, int c_light);
 void	enlight_figure(t_vect origin, t_data *img, t_obj *light);
 void	comput_all_light(t_data *img, t_vect dir, t_vect origin);
+t_vect	cross_prod(t_vect v1, t_vect v2);
+t_vect	vect_orien_cam(t_obj *obj);
 
 
 

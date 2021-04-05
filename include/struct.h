@@ -6,7 +6,7 @@
 /*   By: eriling <eriling@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/02 10:55:05 by eriling           #+#    #+#             */
-/*   Updated: 2021/03/31 14:00:36 by eriling          ###   ########.fr       */
+/*   Updated: 2021/04/05 17:29:56 by eriling          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,9 +48,9 @@ typedef struct s_c
 	double	x;
 	double	y;
 	double	z;
-	double	vect_x;
-	double	vect_y;
-	double	vect_z;
+	double	orien_x;
+	double	orien_y;
+	double	orien_z;
 	int		fov;
 }							t_c;
 

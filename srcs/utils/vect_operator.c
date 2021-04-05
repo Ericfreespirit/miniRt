@@ -1,33 +1,46 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   comput_ray.c                                       :+:      :+:    :+:   */
+/*   vect_operator.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: eriling <eriling@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/04/03 14:47:53 by eriling           #+#    #+#             */
-/*   Updated: 2021/04/05 10:08:00 by eriling          ###   ########.fr       */
+/*   Created: 2021/04/05 10:02:21 by eriling           #+#    #+#             */
+/*   Updated: 2021/04/05 10:03:18 by eriling          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "miniRT.h"
-#include "comput.h"
 #include "struct.h"
+#include <mlx.h>
 
-t_vect ray_dir_obj(t_vect v1, t_vect v2)
+
+double	dot(t_vect v1, t_vect v2)
 {
-	t_vect dir;
-	
-	dir = vect_sous(v1, v2);
-	return (normalize(dir));
+	double	res;
+
+	res = v1.x * v2.x + v1.y * v2.y + v1.z * v2.z;
+	return (res);
 }
 
-t_vect ray_dir_cam(t_data img)
+t_vect vect_sum(t_vect v1, t_vect v2)
 {
-	t_vect dir;
+	t_vect res;
+
+	res.x = v1.x + v2.x;
+	res.y = v1.y + v2.y;
+	res.z = v1.z + v2.z;
+
+	return (res);
+}
+
+t_vect vect_sous(t_vect v1, t_vect v2)
+{
+	t_vect res;	
+
+	res.x = v1.x - v2.x;
+	res.y = v1.y - v2.y;
+	res.z = v1.z - v2.z;
 	
-	dir.x = (img.x - (singleton()->r_x / 2)) * img.pixel_len;
-	dir.y = ((singleton()->r_y / 2) - img.y) * img.pixel_len;
-	dir.z = 1;
-	return (normalize(dir));
+	return (res);
 }

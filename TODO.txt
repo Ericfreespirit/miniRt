@@ -1,2 +1,1 @@
-1) Finish sphere
-2) Put each camera view in an array 
+1) Patch : Sphere have same position

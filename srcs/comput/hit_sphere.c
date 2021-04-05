@@ -6,7 +6,7 @@
 /*   By: eriling <eriling@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/22 14:08:28 by eriling           #+#    #+#             */
-/*   Updated: 2021/04/03 14:10:29 by eriling          ###   ########.fr       */
+/*   Updated: 2021/04/05 10:06:03 by eriling          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,7 @@ int	hit_sphere(t_vect dir, t_vect origin, t_data *img, t_obj *sp)
 {
 	t_math	math;
 
-	origin = vect_distance(origin, vect_obj(sp));
+	origin = vect_sous(origin, vect_obj(sp));
 	math.a = 1;
 	math.b = 2.0 * dot(origin, dir);
 	math.c = dot(origin, origin) - (sp->u.sphere.diam / 2) * (sp->u.sphere.diam / 2);

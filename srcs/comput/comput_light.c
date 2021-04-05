@@ -6,7 +6,7 @@
 /*   By: eriling <eriling@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/03 15:00:24 by eriling           #+#    #+#             */
-/*   Updated: 2021/04/03 15:25:35 by eriling          ###   ########.fr       */
+/*   Updated: 2021/04/05 10:08:21 by eriling          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,8 +22,8 @@ void	enlight_figure(t_vect origin, t_data *img, t_obj *light)
 	t_vect v_obj;
 	v_obj = vect_obj(img->obj);
 	
-	coeff = dot(normalize(vect_distance(origin, v_obj)),
-	normalize(vect_distance(vect_obj(light), origin)));
+	coeff = dot(normalize(vect_sous(origin, v_obj)),
+	normalize(vect_sous(vect_obj(light), origin)));
 	if (coeff < 0)
 		coeff = 0;
 	coeff *= light->u.light.rat_l;

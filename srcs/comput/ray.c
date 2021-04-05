@@ -6,7 +6,7 @@
 /*   By: eriling <eriling@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/22 14:07:16 by eriling           #+#    #+#             */
-/*   Updated: 2021/04/03 15:26:11 by eriling          ###   ########.fr       */
+/*   Updated: 2021/04/05 17:41:13 by eriling          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,7 +67,10 @@ void	hit_figure(t_data *img, t_vect dir, t_vect origin)
 
 void	ray(t_data *img, t_obj *cam)
 {
-	t_vect	dir;
+	t_vect	dir_cam;
+	t_vect	orien_cam;
+	t_vect	rot_axis;
+	double	angle;
 
 	img->y = 0;
 	while (img->y < singleton()->r_y)
@@ -75,8 +78,15 @@ void	ray(t_data *img, t_obj *cam)
 		img->x = 0;
 		while (img->x < singleton()->r_x)
 		{
-			dir = ray_dir_cam(*img);
-			hit_figure(img, dir, vect_obj(cam));		
+			dir_cam = ray_dir_cam(*img);
+			orien_cam = vect_orien_cam(cam);
+			// axe de rotation
+			rot_axis = cross_prod(orien_cam,dir_cam);
+			// angle
+			angle = angle(orien_cam,dir_cam);
+			// matrice d'orientation
+			// La vrai direction de la cam
+			hit_figure(img, dir_cam, vect_obj(cam));		
 			img->x++;
 		}
 		img->y++;
