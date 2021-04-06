@@ -6,7 +6,7 @@
 /*   By: eriling <eriling@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/05 10:01:11 by eriling           #+#    #+#             */
-/*   Updated: 2021/04/05 17:30:10 by eriling          ###   ########.fr       */
+/*   Updated: 2021/04/06 11:29:50 by eriling          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,13 +14,14 @@
 #include "struct.h"
 #include <mlx.h>
 
-t_vect init_vect(t_vect *v)
+t_vect init_vect(double x, double y, double z)
 {
-	v->x = 0;
-	v->y = 0;
-	v->z = 0;
+	t_vect v;
 
-	return (*v);
+	v.x = x;
+	v.y = y;
+	v.z = z;
+	return (v);
 }
 
 void vect_obj_2(t_vect *res, t_obj *obj)
@@ -49,7 +50,7 @@ t_vect vect_obj(t_obj *obj)
 {
 	t_vect res;
 	
-	init_vect(&res);
+	res = init_vect(0, 0, 0);
 	if (obj->my_type == camera)
 	{
 		res.x = obj->u.camera.x;
@@ -76,7 +77,7 @@ t_vect vect_orien_cam(t_obj *obj)
 {
 	t_vect res;
 
-	init_vect(&res);
+	res = init_vect(0, 0, 0);
 	if (obj->my_type == camera)
 	{
 		res.x = obj->u.camera.orien_x;

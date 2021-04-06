@@ -6,7 +6,7 @@
 /*   By: eriling <eriling@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/17 09:04:33 by eriling           #+#    #+#             */
-/*   Updated: 2021/04/03 14:43:29 by eriling          ###   ########.fr       */
+/*   Updated: 2021/04/06 15:22:03 by eriling          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,5 +37,6 @@ void	comput_all_cam_view(t_data *img, t_vars *vars)
 		}
 		i++;
 	}
+	printf("calcul done.\n");
 	mlx_put_image_to_window(vars->mlx, vars->mlx_win, img->img, 0, 0);
 }

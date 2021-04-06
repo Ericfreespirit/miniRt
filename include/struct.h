@@ -6,12 +6,13 @@
 /*   By: eriling <eriling@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/02 10:55:05 by eriling           #+#    #+#             */
-/*   Updated: 2021/04/05 17:29:56 by eriling          ###   ########.fr       */
+/*   Updated: 2021/04/06 13:16:51 by eriling          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef STRUCT_H
 # define STRUCT_H
+# include <stddef.h>
 
 typedef struct s_all
 {

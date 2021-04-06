@@ -6,7 +6,7 @@
 /*   By: eriling <eriling@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/22 14:09:13 by eriling           #+#    #+#             */
-/*   Updated: 2021/04/05 15:28:23 by eriling          ###   ########.fr       */
+/*   Updated: 2021/04/06 15:04:40 by eriling          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,13 +32,13 @@ t_vect cross_prod(t_vect v1, t_vect v2)
 	t_vect res;
 
 	res.x = (v1.y * v2.z) - (v1.z * v2.y);
-	res.x = (v1.z * v2.x) - (v1.x * v2.z);
-	res.x = (v1.x * v2.y) - (v1.y * v2.x);
+	res.y = (v1.z * v2.x) - (v1.x * v2.z);
+	res.z = (v1.x * v2.y) - (v1.y * v2.x);
 	
 	return (res);
 }
 
-double angle(t_vect v1, t_vect v2)
+double find_angle(t_vect v1, t_vect v2)
 {
 	double numerator;
 	double denominator;

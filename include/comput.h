@@ -6,7 +6,7 @@
 /*   By: eriling <eriling@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/03 14:06:41 by eriling           #+#    #+#             */
-/*   Updated: 2021/04/05 17:28:10 by eriling          ###   ########.fr       */
+/*   Updated: 2021/04/06 13:06:23 by eriling          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 # define COMPUT_H
 
 # include "struct.h"
+# include "orientation_matrix.h"
 # define DOUBLE_MAX 1.7976931348623157e+308
 
 int		mlx_function(void);
@@ -47,6 +48,12 @@ void	enlight_figure(t_vect origin, t_data *img, t_obj *light);
 void	comput_all_light(t_data *img, t_vect dir, t_vect origin);
 t_vect	cross_prod(t_vect v1, t_vect v2);
 t_vect	vect_orien_cam(t_obj *obj);
+double	find_angle(t_vect v1, t_vect v2);
+t_matrix	orien_matrix(t_vect v, double angle);
+t_vect	comput_orien_matrix(t_matrix matrix, t_vect v);
+t_vect	init_vect(double x, double y, double z);
+
+
 
 
 

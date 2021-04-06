@@ -1,24 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   print_camera.c                                     :+:      :+:    :+:   */
+/*   orientation_matrix.h                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: eriling <eriling@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/02/11 14:52:04 by eriling           #+#    #+#             */
-/*   Updated: 2021/04/06 13:10:04 by eriling          ###   ########.fr       */
+/*   Created: 2021/04/06 09:52:01 by eriling           #+#    #+#             */
+/*   Updated: 2021/04/06 11:14:16 by eriling          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "miniRT.h"
-#include "struct.h"
 
-void	print_camera(size_t i)
+#ifndef ORIENTATION_MATRIX_H
+# define ORIENTATION_MATRIX_H
+
+typedef struct s_matrix
 {
-	printf("#%zu Camera ", i);
-	printf("%f,%f,%f| ", sg_dyn()->obj[i]->u.camera.x,
-		sg_dyn()->obj[i]->u.camera.y, sg_dyn()->obj[i]->u.camera.z);
-	printf("%f,%f,%f| ", sg_dyn()->obj[i]->u.camera.orien_x,
-		sg_dyn()->obj[i]->u.camera.orien_y, sg_dyn()->obj[i]->u.camera.orien_z);
-	printf("%d\n", sg_dyn()->obj[i]->u.camera.fov);
-}
+	double a1;
+	double a2;
+	double a3;
+	double b1;
+	double b2;
+	double b3;
+	double c1;
+	double c2;
+	double c3;
+}							t_matrix;
+
+#endif

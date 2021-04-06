@@ -6,7 +6,7 @@
 /*   By: eriling <eriling@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/03 15:00:24 by eriling           #+#    #+#             */
-/*   Updated: 2021/04/05 10:08:21 by eriling          ###   ########.fr       */
+/*   Updated: 2021/04/06 14:58:47 by eriling          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,7 @@ void comput_all_light(t_data *img, t_vect dir, t_vect origin)
 			if (sg_dyn()->obj[i]->my_type == light)
 			{
 				v_light = vect_obj(sg_dyn()->obj[i]);
-				 hit_light(ray_dir_obj(v_light, origin),vect_sum(origin, scale(dir, img->t)), 
+				 hit_light(ray_dir_obj(v_light, origin), origin, 
 				 sg_dyn()->obj[i], img);
 			}
 			i++;
@@ -55,5 +55,3 @@ void comput_all_light(t_data *img, t_vect dir, t_vect origin)
 		final_color = mult_rgb(img->color, img->total_light_color);
 		my_mlx_pixel_put(img, img->x, img->y, final_color);
 }	
-
-	

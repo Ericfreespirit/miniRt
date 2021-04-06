@@ -6,7 +6,7 @@
 /*   By: eriling <eriling@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/22 14:07:16 by eriling           #+#    #+#             */
-/*   Updated: 2021/04/05 17:41:13 by eriling          ###   ########.fr       */
+/*   Updated: 2021/04/06 15:19:48 by eriling          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,31 +62,37 @@ void	hit_figure(t_data *img, t_vect dir, t_vect origin)
 		i++;
 	}
 	if (hit == 1)
-		comput_all_light(img, dir, origin);
+		comput_all_light(img, dir, vect_sum(origin, scale(dir, img->t)));
+}
+
+void print_vector(t_vect v)
+{
+	printf("v.x = %f| v.y = %f | v.z = %f\n",v.x, v.y, v.z);
 }
 
 void	ray(t_data *img, t_obj *cam)
 {
+	t_matrix matrix;
 	t_vect	dir_cam;
 	t_vect	orien_cam;
 	t_vect	rot_axis;
 	double	angle;
 
+	orien_cam = vect_orien_cam(cam);
+	rot_axis = cross_prod(init_vect(0, 0, 1), normalize(vect_orien_cam(cam)));
+	angle = find_angle(normalize(vect_orien_cam(cam)), init_vect(0, 0, 1));
+	print_vector(rot_axis);
 	img->y = 0;
 	while (img->y < singleton()->r_y)
 	{
 		img->x = 0;
 		while (img->x < singleton()->r_x)
 		{
+			matrix = orien_matrix(normalize(rot_axis), angle);
 			dir_cam = ray_dir_cam(*img);
-			orien_cam = vect_orien_cam(cam);
-			// axe de rotation
-			rot_axis = cross_prod(orien_cam,dir_cam);
-			// angle
-			angle = angle(orien_cam,dir_cam);
-			// matrice d'orientation
-			// La vrai direction de la cam
-			hit_figure(img, dir_cam, vect_obj(cam));		
+			if (!(orien_cam.x == 0 && orien_cam.y == 0 && orien_cam.z == 1))
+				dir_cam = comput_orien_matrix(matrix, dir_cam);
+			hit_figure(img, dir_cam, vect_obj(cam));
 			img->x++;
 		}
 		img->y++;
