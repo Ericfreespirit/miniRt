@@ -6,7 +6,7 @@
 /*   By: eriling <eriling@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/22 14:09:13 by eriling           #+#    #+#             */
-/*   Updated: 2021/04/06 15:04:40 by eriling          ###   ########.fr       */
+/*   Updated: 2021/04/07 08:33:20 by eriling          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,48 +16,45 @@
 #include <mlx.h>
 #include <math.h>
 
-t_vect scale(t_vect v1, double t)
+t_vect	scale(t_vect v1, double t)
 {
-	t_vect res;
-	
-	res.x = v1.x *= t;
-	res.y = v1.y *= t;
-	res.z = v1.z *= t;
+	t_vect	res;
 
+	res.x = v1.x * t;
+	res.y = v1.y * t;
+	res.z = v1.z * t;
 	return (res);
 }
 
-t_vect cross_prod(t_vect v1, t_vect v2)
+t_vect	cross_prod(t_vect v1, t_vect v2)
 {
-	t_vect res;
+	t_vect	res;
 
 	res.x = (v1.y * v2.z) - (v1.z * v2.y);
 	res.y = (v1.z * v2.x) - (v1.x * v2.z);
 	res.z = (v1.x * v2.y) - (v1.y * v2.x);
-	
 	return (res);
 }
 
-double find_angle(t_vect v1, t_vect v2)
+double	find_angle(t_vect v1, t_vect v2)
 {
-	double numerator;
-	double denominator;
-	double res;
+	double	numerator;
+	double	denominator;
+	double	res;
 
 	numerator = dot(v1, v2);
 	denominator = sqrt(dot(v1, v1) * dot(v2, v2));
 	res = numerator / denominator;
-
 	return (acos(res));
 }
 
-t_vect normalize(t_vect v)
+t_vect	normalize(t_vect v)
 {
-	double norma;
+	double	norma;
 
 	norma = sqrt(dot(v, v));
 	v.x /= norma;
 	v.y /= norma;
-	v.z /= norma;	
+	v.z /= norma;
 	return (v);
 }

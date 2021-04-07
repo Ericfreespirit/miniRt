@@ -6,7 +6,7 @@
 /*   By: eriling <eriling@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/03 14:06:41 by eriling           #+#    #+#             */
-/*   Updated: 2021/04/07 08:00:47 by eriling          ###   ########.fr       */
+/*   Updated: 2021/04/07 08:27:19 by eriling          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,4 +52,5 @@ double	find_angle(t_vect v1, t_vect v2);
 t_vect	comput_orien_matrix(t_matr matrix, t_vect v);
 t_vect	init_vect(double x, double y, double z);
 t_matr	orien_matrix(t_vect v, double angle);
+t_vect	color_to_rgb(int color);
 #endif
