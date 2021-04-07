@@ -6,7 +6,7 @@
 /*   By: eriling <eriling@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/02 10:55:05 by eriling           #+#    #+#             */
-/*   Updated: 2021/04/07 08:03:18 by eriling          ###   ########.fr       */
+/*   Updated: 2021/04/07 10:20:50 by eriling          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,9 +82,9 @@ typedef struct s_pl
 	double	x;
 	double	y;
 	double	z;
-	double	vect_x;
-	double	vect_y;
-	double	vect_z;
+	double	orien_x;
+	double	orien_y;
+	double	orien_z;
 	int		r;
 	int		g;
 	int		b;
@@ -95,9 +95,9 @@ typedef struct s_sq
 	double	x;
 	double	y;
 	double	z;
-	double	vect_x;
-	double	vect_y;
-	double	vect_z;
+	double	orien_x;
+	double	orien_y;
+	double	orien_z;
 	double	high;
 	int		r;
 	int		g;
@@ -109,9 +109,9 @@ typedef struct s_cy
 	double	x;
 	double	y;
 	double	z;
-	double	vect_x;
-	double	vect_y;
-	double	vect_z;
+	double	orien_x;
+	double	orien_y;
+	double	orien_z;
 	double	diam;
 	double	high;
 	int		r;

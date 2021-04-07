@@ -6,7 +6,7 @@
 /*   By: eriling <eriling@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/22 14:05:53 by eriling           #+#    #+#             */
-/*   Updated: 2021/04/07 08:29:43 by eriling          ###   ########.fr       */
+/*   Updated: 2021/04/07 11:35:44 by eriling          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,6 +47,12 @@ int	rgb_to_int(t_obj *obj)
 		r = obj->u.light.r;
 		g = obj->u.light.g;
 		b = obj->u.light.b;
+	}
+	else if (obj->my_type == plane)
+	{
+		r = obj->u.plane.r;
+		g = obj->u.plane.g;
+		b = obj->u.plane.b;
 	}
 	color = 65536 * r + 256 * g + b;
 	return (color);

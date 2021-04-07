@@ -6,7 +6,7 @@
 /*   By: eriling <eriling@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/22 14:07:16 by eriling           #+#    #+#             */
-/*   Updated: 2021/04/07 08:17:22 by eriling          ###   ########.fr       */
+/*   Updated: 2021/04/07 11:48:49 by eriling          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,8 +19,17 @@
 int	check_hit_figure(t_vect dir, t_vect origin, t_data *img, t_obj *obj)
 {
 	if (obj->my_type == sphere)
+	{
 		if (hit_sphere(dir, origin, img, obj) == 1)
 			return (1);
+	}
+	else if (obj->my_type == plane)
+	{
+		if ((hit_plane(dir, origin, img, obj) == 1))
+		{
+			return (1);
+		}
+	}
 	return (0);
 }
 
@@ -66,11 +75,6 @@ void	hit_figure(t_data *img, t_vect dir, t_vect origin)
 		comput_all_light(img, vect_sum(origin, scale(dir, img->t)));
 }
 
-void	print_vector(t_vect v)
-{
-	printf("v.x = %f| v.y = %f | v.z = %f\n", v.x, v.y, v.z);
-}
-
 void	ray(t_data *img, t_obj *cam)
 {
 	t_matr	matrix;
@@ -82,7 +86,6 @@ void	ray(t_data *img, t_obj *cam)
 	orien_cam = vect_orien_cam(cam);
 	rot_axis = cross_prod(init_vect(0, 0, 1), normalize(vect_orien_cam(cam)));
 	angle = find_angle(normalize(vect_orien_cam(cam)), init_vect(0, 0, 1));
-	print_vector(rot_axis);
 	img->y = 0;
 	while (img->y < singleton()->r_y)
 	{

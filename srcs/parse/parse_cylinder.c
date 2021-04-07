@@ -6,7 +6,7 @@
 /*   By: eriling <eriling@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/29 09:56:35 by eriling           #+#    #+#             */
-/*   Updated: 2021/04/03 13:55:19 by eriling          ###   ########.fr       */
+/*   Updated: 2021/04/07 10:24:06 by eriling          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,11 +19,11 @@ int	check_data_in_cylinder(t_cy cylinder_data)
 	int	i;
 
 	i = 0;
-	if (cylinder_data.vect_x >= -1 && cylinder_data.vect_x <= 1)
+	if (cylinder_data.orien_x >= -1 && cylinder_data.orien_x <= 1)
 		i++;
-	if (cylinder_data.vect_y >= -1 && cylinder_data.vect_y <= 1)
+	if (cylinder_data.orien_y >= -1 && cylinder_data.orien_y <= 1)
 		i++;
-	if (cylinder_data.vect_z >= -1 && cylinder_data.vect_z <= 1)
+	if (cylinder_data.orien_z >= -1 && cylinder_data.orien_z <= 1)
 		i++;
 	if (cylinder_data.r >= 0 && cylinder_data.r <= 255)
 		i++;
@@ -43,8 +43,8 @@ int	stock_cylinder(char **line, t_cy *cylinder_data)
 	if (add_3_float(line, &(cylinder_data->x), &(cylinder_data->y),
 			&(cylinder_data->z)) == 1)
 		return (1);
-	if (add_3_float(line, &(cylinder_data->vect_x), &(cylinder_data->vect_y),
-			&(cylinder_data->vect_z)) == 1)
+	if (add_3_float(line, &(cylinder_data->orien_x), &(cylinder_data->orien_y),
+			&(cylinder_data->orien_z)) == 1)
 		return (1);
 	cylinder_data->diam = ft_atof_2(line);
 	cylinder_data->high = ft_atof_2(line);

@@ -6,7 +6,7 @@
 /*   By: eriling <eriling@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/29 09:57:30 by eriling           #+#    #+#             */
-/*   Updated: 2021/04/03 13:55:08 by eriling          ###   ########.fr       */
+/*   Updated: 2021/04/07 10:23:06 by eriling          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,11 +19,11 @@ int	check_data_in_square(t_sq square_data)
 	int	i;
 
 	i = 0;
-	if (square_data.vect_x >= -1 && square_data.vect_x <= 1)
+	if (square_data.orien_x >= -1 && square_data.orien_x <= 1)
 		i++;
-	if (square_data.vect_y >= -1 && square_data.vect_y <= 1)
+	if (square_data.orien_y >= -1 && square_data.orien_y <= 1)
 		i++;
-	if (square_data.vect_z >= -1 && square_data.vect_z <= 1)
+	if (square_data.orien_z >= -1 && square_data.orien_z <= 1)
 		i++;
 	if (square_data.r >= 0 && square_data.r <= 255)
 		i++;
@@ -43,8 +43,8 @@ int	stock_square(char **line, t_sq *square_data)
 	if (add_3_float(line, &(square_data->x), &(square_data->y),
 			&(square_data->z)) == 1)
 		return (1);
-	if (add_3_float(line, &(square_data->vect_x), &(square_data->vect_y),
-			&(square_data->vect_z)) == 1)
+	if (add_3_float(line, &(square_data->orien_x), &(square_data->orien_y),
+			&(square_data->orien_z)) == 1)
 		return (1);
 	square_data->high = ft_atof_2(line);
 	if (add_rgb(line, &(square_data->r), &(square_data->g),

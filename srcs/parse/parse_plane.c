@@ -6,7 +6,7 @@
 /*   By: eriling <eriling@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/29 09:57:03 by eriling           #+#    #+#             */
-/*   Updated: 2021/04/03 13:55:14 by eriling          ###   ########.fr       */
+/*   Updated: 2021/04/07 10:22:20 by eriling          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,11 +18,11 @@ int	check_data_in_plane(t_pl plane_data)
 	int	i;
 
 	i = 0;
-	if (plane_data.vect_x >= -1 && plane_data.vect_x <= 1)
+	if (plane_data.orien_x >= -1 && plane_data.orien_x <= 1)
 		i++;
-	if (plane_data.vect_y >= -1 && plane_data.vect_y <= 1)
+	if (plane_data.orien_y >= -1 && plane_data.orien_y <= 1)
 		i++;
-	if (plane_data.vect_z >= -1 && plane_data.vect_z <= 1)
+	if (plane_data.orien_z >= -1 && plane_data.orien_z <= 1)
 		i++;
 	if (plane_data.r >= 0 && plane_data.r <= 255)
 		i++;
@@ -42,8 +42,8 @@ int	stock_plane(char **line, t_pl *plane_data)
 	if (add_3_float(line, &(plane_data->x), &(plane_data->y),
 			&(plane_data->z)) == 1)
 		return (1);
-	if (add_3_float(line, &(plane_data->vect_x), &(plane_data->vect_y),
-			&(plane_data->vect_z)) == 1)
+	if (add_3_float(line, &(plane_data->orien_x), &(plane_data->orien_y),
+			&(plane_data->orien_z)) == 1)
 		return (1);
 	if (add_rgb(line, &(plane_data->r), &(plane_data->g),
 			&(plane_data->b)) == 1)

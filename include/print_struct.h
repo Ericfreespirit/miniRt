@@ -6,7 +6,7 @@
 /*   By: eriling <eriling@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/03 13:58:16 by eriling           #+#    #+#             */
-/*   Updated: 2021/04/03 13:59:17 by eriling          ###   ########.fr       */
+/*   Updated: 2021/04/07 11:49:24 by eriling          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,5 +23,5 @@ void	print_cylinder(size_t i);
 void	print_triangle(size_t i);
 void	print_struct(void);
 void	print_dynarr(void);
-
+void	print_vector(t_vect v);
 #endif
