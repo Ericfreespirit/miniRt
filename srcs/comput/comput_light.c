@@ -6,7 +6,7 @@
 /*   By: eriling <eriling@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/03 15:00:24 by eriling           #+#    #+#             */
-/*   Updated: 2021/04/06 14:58:47 by eriling          ###   ########.fr       */
+/*   Updated: 2021/04/07 08:00:10 by eriling          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ void	enlight_figure(t_vect origin, t_data *img, t_obj *light)
 	img->total_light_color = sum_rgb(img->total_light_color, color_coeff(rgb_to_int(light), coeff));
 }
 
-void comput_all_light(t_data *img, t_vect dir, t_vect origin)
+void comput_all_light(t_data *img, t_vect origin)
 {	
 	size_t	i;
 	t_vect		v_light;

@@ -6,7 +6,7 @@
 /*   By: eriling <eriling@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/06 10:22:32 by eriling           #+#    #+#             */
-/*   Updated: 2021/04/06 13:51:31 by eriling          ###   ########.fr       */
+/*   Updated: 2021/04/07 07:58:53 by eriling          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,9 +16,9 @@
 #include "orientation_matrix.h"
 #include "struct.h"
 
-t_matrix	orien_matrix(t_vect v, double angle)
+t_matr	orien_matrix(t_vect v, double angle)
 {
-	t_matrix matrix;
+	t_matr matrix;
 
 	matrix.a1 = (v.x * v.x) * (1 - cos(angle)) + cos(angle);
 	matrix.a2 = (v.x * v.y) * (1 - cos(angle)) + v.z * sin(angle);
@@ -35,7 +35,7 @@ t_matrix	orien_matrix(t_vect v, double angle)
 	return(matrix);
 }
 
-t_vect comput_orien_matrix(t_matrix matrix, t_vect v)
+t_vect comput_orien_matrix(t_matr matrix, t_vect v)
 {
 	t_vect u;
 

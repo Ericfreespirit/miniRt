@@ -6,7 +6,7 @@
 /*   By: eriling <eriling@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/22 14:07:16 by eriling           #+#    #+#             */
-/*   Updated: 2021/04/06 15:19:48 by eriling          ###   ########.fr       */
+/*   Updated: 2021/04/07 08:00:38 by eriling          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,7 +62,7 @@ void	hit_figure(t_data *img, t_vect dir, t_vect origin)
 		i++;
 	}
 	if (hit == 1)
-		comput_all_light(img, dir, vect_sum(origin, scale(dir, img->t)));
+		comput_all_light(img, vect_sum(origin, scale(dir, img->t)));
 }
 
 void print_vector(t_vect v)
@@ -72,7 +72,7 @@ void print_vector(t_vect v)
 
 void	ray(t_data *img, t_obj *cam)
 {
-	t_matrix matrix;
+	t_matr matrix;
 	t_vect	dir_cam;
 	t_vect	orien_cam;
 	t_vect	rot_axis;
