@@ -6,7 +6,7 @@
 /*   By: eriling <eriling@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/17 09:04:33 by eriling           #+#    #+#             */
-/*   Updated: 2021/04/06 15:22:03 by eriling          ###   ########.fr       */
+/*   Updated: 2021/04/09 14:49:41 by eriling          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,7 @@ void	comput_all_cam_view(t_data *img, t_vars *vars)
 			vp_height = vp_width * ratio;
 			img->pixel_len = vp_width / (double)singleton()->r_x;
 			ray(img, sg_dyn()->obj[i]);
+			// stock all img into array
 		}
 		i++;
 	}

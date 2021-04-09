@@ -6,7 +6,7 @@
 /*   By: eriling <eriling@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/07 09:06:48 by eriling           #+#    #+#             */
-/*   Updated: 2021/04/07 13:02:59 by eriling          ###   ########.fr       */
+/*   Updated: 2021/04/09 14:38:28 by eriling          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,21 +16,6 @@
 #include "print_struct.h"
 #include <mlx.h>
 #include <math.h>
-
-
-t_vect	vect_orien_plane(t_obj *pl)
-{
-	t_vect	res;
-
-	res = init_vect(0, 0, 0);
-	if (pl->my_type == plane)
-	{
-		res.x = pl->u.plane.orien_x;
-		res.y = pl->u.plane.orien_y;
-		res.z = pl->u.plane.orien_z;
-	}
-	return(res);
-}
 
 int hit_plane(t_vect dir, t_vect origin, t_data *img, t_obj *pl)
 {
@@ -55,17 +40,3 @@ int hit_plane(t_vect dir, t_vect origin, t_data *img, t_obj *pl)
 	}
 	return (0);
 }
-
-
-// bool intersectPlane(const Vec3f &n, const Vec3f &p0, const Vec3f &l0, const Vec3f &l, float &t) 
-// { 
-//     // assuming vectors are all normalized
-//     float denom = dotProduct(n, l); 
-//     if (denom > 1e-6) { 
-//         Vec3f p0l0 = p0 - l0; 
-//         t = dotProduct(p0l0, n) / denom; 
-//         return (t >= 0); 
-//     } 
- 
-//     return false; 
-// } 

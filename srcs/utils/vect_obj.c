@@ -6,7 +6,7 @@
 /*   By: eriling <eriling@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/05 10:01:11 by eriling           #+#    #+#             */
-/*   Updated: 2021/04/07 08:34:14 by eriling          ###   ########.fr       */
+/*   Updated: 2021/04/09 14:29:14 by eriling          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,19 +70,5 @@ t_vect	vect_obj(t_obj *obj)
 		res.z = obj->u.light.z;
 	}
 	vect_obj_2(&res, obj);
-	return (res);
-}
-
-t_vect	vect_orien_cam(t_obj *obj)
-{
-	t_vect	res;
-
-	res = init_vect(0, 0, 0);
-	if (obj->my_type == camera)
-	{
-		res.x = obj->u.camera.orien_x;
-		res.y = obj->u.camera.orien_y;
-		res.z = obj->u.camera.orien_z;
-	}
 	return (res);
 }

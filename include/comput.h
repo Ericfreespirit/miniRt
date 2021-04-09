@@ -6,7 +6,7 @@
 /*   By: eriling <eriling@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/03 14:06:41 by eriling           #+#    #+#             */
-/*   Updated: 2021/04/07 11:49:12 by eriling          ###   ########.fr       */
+/*   Updated: 2021/04/09 14:34:07 by eriling          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,4 +54,6 @@ t_vect	init_vect(double x, double y, double z);
 t_matr	orien_matrix(t_vect v, double angle);
 t_vect	color_to_rgb(int color);
 int			hit_plane(t_vect dir, t_vect origin, t_data *img, t_obj *pl);
+t_vect	vect_orien_plane(t_obj *obj);
+
 #endif
