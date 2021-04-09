@@ -6,7 +6,7 @@
 /*   By: eriling <eriling@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/29 09:57:30 by eriling           #+#    #+#             */
-/*   Updated: 2021/04/07 10:23:06 by eriling          ###   ########.fr       */
+/*   Updated: 2021/04/08 20:12:29 by eriling          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,7 @@ int	stock_square(char **line, t_sq *square_data)
 	if (add_rgb(line, &(square_data->r), &(square_data->g),
 			&(square_data->b)) == 1)
 		return (1);
-	if (**line != 0)
+	if (check_end_element(line) != 0)
 		return (1);
 	return (0);
 }

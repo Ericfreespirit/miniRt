@@ -6,7 +6,7 @@
 /*   By: eriling <eriling@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/28 09:16:34 by eriling           #+#    #+#             */
-/*   Updated: 2021/04/03 13:55:56 by eriling          ###   ########.fr       */
+/*   Updated: 2021/04/09 10:20:05 by eriling          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,6 +72,8 @@ int	is_double_letter_part2(char **line)
 
 int	is_mult_data(char **line)
 {
+	while (**line && ft_isspace(**line))
+		(*line)++;
 	if (is_double_letter_part1(line) == 1 || is_double_letter_part2(line) == 1
 		|| is_single_letter(line) == 1)
 		return (1);

@@ -6,7 +6,7 @@
 /*   By: eriling <eriling@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/29 09:57:42 by eriling           #+#    #+#             */
-/*   Updated: 2021/04/03 13:55:07 by eriling          ###   ########.fr       */
+/*   Updated: 2021/04/08 20:12:44 by eriling          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,7 @@ int	stock_triangle(char **line, t_tr *triangle_data)
 	if (add_rgb(line, &(triangle_data->r), &(triangle_data->g),
 			&(triangle_data->b)) == 1)
 		return (1);
-	if (**line != 0)
+	if (check_end_element(line) != 0)
 		return (1);
 	return (0);
 }

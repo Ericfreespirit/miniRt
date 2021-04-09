@@ -3,5 +3,6 @@
 		"parse.h": "c",
 		"minirt.h": "c",
 		"struct.h": "c"
-	}
+	},
+	"C_Cpp.errorSquiggles": "Disabled"
 }

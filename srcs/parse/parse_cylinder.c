@@ -6,7 +6,7 @@
 /*   By: eriling <eriling@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/29 09:56:35 by eriling           #+#    #+#             */
-/*   Updated: 2021/04/07 10:24:06 by eriling          ###   ########.fr       */
+/*   Updated: 2021/04/08 20:12:35 by eriling          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,7 +51,7 @@ int	stock_cylinder(char **line, t_cy *cylinder_data)
 	if (add_rgb(line, &(cylinder_data->r), &(cylinder_data->g),
 			&(cylinder_data->b)) == 1)
 		return (1);
-	if (**line != 0)
+	if (check_end_element(line) != 0)
 		return (1);
 	return (0);
 }

@@ -6,7 +6,7 @@
 /*   By: eriling <eriling@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/29 09:56:23 by eriling           #+#    #+#             */
-/*   Updated: 2021/04/06 13:08:30 by eriling          ###   ########.fr       */
+/*   Updated: 2021/04/08 20:10:55 by eriling          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ int	stock_camera(char **line, t_c *camera_data)
 			&(camera_data->orien_z)) == 1)
 		return (1);
 	camera_data->fov = ft_atoi_2(line);
-	if (**line != 0)
+	if (check_end_element(line) != 0)
 		return (1);
 	return (0);
 }

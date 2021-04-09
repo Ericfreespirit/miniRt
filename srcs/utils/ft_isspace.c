@@ -1,33 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   is_single_data.c                                   :+:      :+:    :+:   */
+/*   ft_isspace.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: eriling <eriling@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/01/28 08:45:08 by eriling           #+#    #+#             */
-/*   Updated: 2021/04/09 10:18:53 by eriling          ###   ########.fr       */
+/*   Created: 2021/04/08 20:00:48 by eriling           #+#    #+#             */
+/*   Updated: 2021/04/08 20:08:41 by eriling          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "miniRT.h"
-#include "parse.h"
 
-int	is_single_data(char **line)
+int ft_isspace(int c)
 {
-	while (**line && ft_isspace(**line))
-		(*line)++;
-	if (**line == 'R')
-	{
-		if (parse_resolution(line) == 0)
-			return (1);
-		return (0);
-	}
-	else if (**line == 'A')
-	{
-		if (parse_ambient(line) == 0)
-			return (1);
-		return (0);
-	}
-	return (-1);
+	if((c >= 9 && c <= 13) || c == 32)
+		return (1);
+	return(0);
 }

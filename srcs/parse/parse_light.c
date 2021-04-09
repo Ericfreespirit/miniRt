@@ -6,7 +6,7 @@
 /*   By: eriling <eriling@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/29 09:56:49 by eriling           #+#    #+#             */
-/*   Updated: 2021/04/03 13:55:18 by eriling          ###   ########.fr       */
+/*   Updated: 2021/04/08 20:11:27 by eriling          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@ int	stock_light(char **line, t_l *light_data)
 	if (add_rgb(line, &(light_data->r), &(light_data->g),
 			&(light_data->b)) == 1)
 		return (1);
-	if (**line != 0)
+	if (check_end_element(line) != 0)
 		return (1);
 	return (0);
 }

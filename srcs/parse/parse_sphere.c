@@ -6,7 +6,7 @@
 /*   By: eriling <eriling@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/29 09:57:22 by eriling           #+#    #+#             */
-/*   Updated: 2021/04/03 13:55:09 by eriling          ###   ########.fr       */
+/*   Updated: 2021/04/08 20:11:57 by eriling          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ int	stock_sphere(char **line, t_sp *sphere_data)
 	if (add_rgb(line, &(sphere_data->r), &(sphere_data->g),
 			&(sphere_data->b)) == 1)
 		return (1);
-	if (**line != 0)
+	if (check_end_element(line) != 0)
 		return (1);
 	return (0);
 }

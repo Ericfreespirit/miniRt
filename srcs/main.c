@@ -6,7 +6,7 @@
 /*   By: eriling <eriling@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/27 10:54:41 by eriling           #+#    #+#             */
-/*   Updated: 2021/03/30 09:22:35 by eriling          ###   ########.fr       */
+/*   Updated: 2021/04/09 10:02:08 by eriling          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,6 @@ int	main(int ac, char **av)
 		printf("save image in bmp format\n");
 	}
 	else
-		printf("Error\n");
+		printf("Error\nInput false");
 	return (0);
 }

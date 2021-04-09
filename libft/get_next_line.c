@@ -6,7 +6,7 @@
 /*   By: eriling <eriling@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/30 14:09:28 by eriling           #+#    #+#             */
-/*   Updated: 2021/02/18 16:12:28 by eriling          ###   ########.fr       */
+/*   Updated: 2021/04/09 10:03:32 by eriling          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,7 +73,7 @@ int	get_next_line(const int fd, char **line, int buffer_size)
 	char		*tmp;
 	static char	*str[256];
 	char		*buff;
-
+	
 	if (fd < 0 || !line || fd > 256 || buffer_size <= 0)
 		return (-1);
 	buff = malloc(buffer_size + 1);

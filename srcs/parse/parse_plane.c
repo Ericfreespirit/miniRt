@@ -6,7 +6,7 @@
 /*   By: eriling <eriling@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/29 09:57:03 by eriling           #+#    #+#             */
-/*   Updated: 2021/04/07 10:22:20 by eriling          ###   ########.fr       */
+/*   Updated: 2021/04/08 20:12:22 by eriling          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,7 @@ int	stock_plane(char **line, t_pl *plane_data)
 	if (add_rgb(line, &(plane_data->r), &(plane_data->g),
 			&(plane_data->b)) == 1)
 		return (1);
-	if (**line != 0)
+	if (check_end_element(line) != 0)
 		return (1);
 	return (0);
 }
