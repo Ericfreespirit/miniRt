@@ -1,6 +1,3 @@
-- Protect open for:
-ln -s /dev/urandom map.cub
-
 - minimize and remaximize should not have a black screen
 
-- Array of scene to be search
+- Array of scene

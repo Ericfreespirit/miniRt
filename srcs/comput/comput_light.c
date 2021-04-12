@@ -6,33 +6,48 @@
 /*   By: eriling <eriling@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/03 15:00:24 by eriling           #+#    #+#             */
-/*   Updated: 2021/04/09 14:44:24 by eriling          ###   ########.fr       */
+/*   Updated: 2021/04/11 18:43:58 by eriling          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "miniRT.h"
 #include "struct.h"
+#include "print_struct.h"
 #include "comput.h"
 #include <mlx.h>
 #include <math.h>
 
-t_vect get_normal(t_data *img, t_vect origin)
+t_vect vect_reverse(t_vect v)
+{
+	t_vect	res;
+
+	res.x = v.x * -1;
+	res.y = v.y * -1;
+	res.z = v.z * -1;
+	return (res);
+}
+
+t_vect get_normal(t_data *img, t_vect origin, t_vect dir)
 {
 	t_vect	v;
 
 	v = init_vect(0, 0, 0);
 	if (img->obj->my_type == sphere)
-		return(vect_sous(origin, vect_obj(img->obj)));	
+		v = normalize(vect_sous(origin, vect_obj(img->obj)));
 	else if (img->obj->my_type == plane)
-		return(vect_orien_plane(img->obj));
+	{
+		v = normalize(vect_orien_plane(img->obj));
+		if (dot(dir, v) < 0)
+			v = vect_reverse(v);
+	}
 	return(v);
 }
 
-void	enlight_figure(t_vect origin, t_data *img, t_obj *light)
+void	enlight_figure(t_vect origin, t_data *img, t_obj *light, t_vect dir)
 {
 	double	coeff;
 
-	coeff = dot(normalize(get_normal(img, origin)),
+	coeff = dot(normalize(get_normal(img, origin, dir)),
 			normalize(vect_sous(vect_obj(light), origin)));
 	if (coeff < 0)
 		coeff = 0;

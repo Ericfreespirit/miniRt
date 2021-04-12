@@ -6,7 +6,7 @@
 /*   By: eriling <eriling@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/22 14:07:16 by eriling           #+#    #+#             */
-/*   Updated: 2021/04/07 11:48:49 by eriling          ###   ########.fr       */
+/*   Updated: 2021/04/12 11:13:12 by eriling          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,9 +26,7 @@ int	check_hit_figure(t_vect dir, t_vect origin, t_data *img, t_obj *obj)
 	else if (obj->my_type == plane)
 	{
 		if ((hit_plane(dir, origin, img, obj) == 1))
-		{
-			return (1);
-		}
+			return (1); d
 	}
 	return (0);
 }
@@ -50,8 +48,8 @@ void	hit_light(t_vect dir, t_vect origin, t_obj *light, t_data *img)
 				hit = 1;
 		i++;
 	}
-	if (hit == 0)
-		enlight_figure(origin, img, light);
+	if (hit == 0 || fig_to_light.t > vect_length(vect_obj(light),origin))
+		enlight_figure(origin, img, light, dir);
 }
 
 void	hit_figure(t_data *img, t_vect dir, t_vect origin)

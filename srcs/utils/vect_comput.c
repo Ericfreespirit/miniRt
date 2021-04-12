@@ -6,7 +6,7 @@
 /*   By: eriling <eriling@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/22 14:09:13 by eriling           #+#    #+#             */
-/*   Updated: 2021/04/07 08:33:20 by eriling          ###   ########.fr       */
+/*   Updated: 2021/04/12 10:14:09 by eriling          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,4 +57,15 @@ t_vect	normalize(t_vect v)
 	v.y /= norma;
 	v.z /= norma;
 	return (v);
+}
+
+double vect_length(t_vect v1, t_vect v2)
+{
+	double res;
+
+	res = 0;
+	res = (v2.x - v1.x) * (v2.x - v1.x);
+	res += (v2.y - v1.y) * (v2.y - v1.y);
+	res += (v2.z - v1.z) * (v2.z - v1.z);
+	return (sqrt(res));
 }

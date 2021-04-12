@@ -6,7 +6,7 @@
 /*   By: eriling <eriling@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/03 14:06:41 by eriling           #+#    #+#             */
-/*   Updated: 2021/04/09 14:34:07 by eriling          ###   ########.fr       */
+/*   Updated: 2021/04/12 10:13:26 by eriling          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,7 @@ int		mix_rgb(int c1, int c2, double coeff);
 int		sum_rgb(int c1, int c2);
 int		rgb_to_int_ambiante(void);
 int		mult_rgb(int c_obj, int c_light);
-void	enlight_figure(t_vect origin, t_data *img, t_obj *light);
+void	enlight_figure(t_vect origin, t_data *img, t_obj *light, t_vect dir);
 void	comput_all_light(t_data *img, t_vect origin);
 t_vect	cross_prod(t_vect v1, t_vect v2);
 t_vect	vect_orien_cam(t_obj *obj);
@@ -55,5 +55,6 @@ t_matr	orien_matrix(t_vect v, double angle);
 t_vect	color_to_rgb(int color);
 int			hit_plane(t_vect dir, t_vect origin, t_data *img, t_obj *pl);
 t_vect	vect_orien_plane(t_obj *obj);
+double	vect_length(t_vect v1, t_vect v2);
 
 #endif

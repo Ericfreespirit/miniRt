@@ -6,7 +6,7 @@
 /*   By: eriling <eriling@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/29 09:55:36 by eriling           #+#    #+#             */
-/*   Updated: 2021/04/08 20:09:56 by eriling          ###   ########.fr       */
+/*   Updated: 2021/04/09 17:14:26 by eriling          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,6 +40,7 @@ int	parse_ambient(char **line)
 	singleton()->a = 1;
 	(*line)++;
 	singleton()->a_ran_light = ft_atof_2(line);
+	singleton()->a_ran_light *= 0.05;
 	if (add_rgb(line, &(singleton()->a_r),
 			&(singleton()->a_g), &(singleton()->a_b)) == 1)
 		return (1);
