@@ -6,7 +6,7 @@
 /*   By: eriling <eriling@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/02 10:55:05 by eriling           #+#    #+#             */
-/*   Updated: 2021/04/11 18:20:03 by eriling          ###   ########.fr       */
+/*   Updated: 2021/04/12 15:07:08 by eriling          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -193,6 +193,11 @@ typedef struct s_math
 	double	det;
 	double	t1;
 	double	t2;
+	t_vect	v1;
+	t_vect	v2;
+	t_vect	v3;
+	t_vect	v4;
+	t_vect	v5;
 }				t_math;
 
 typedef struct s_last_hit

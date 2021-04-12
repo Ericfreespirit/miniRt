@@ -6,7 +6,7 @@
 #    By: eriling <eriling@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/01/27 10:54:58 by eriling           #+#    #+#              #
-#    Updated: 2021/04/09 14:29:50 by eriling          ###   ########.fr        #
+#    Updated: 2021/04/12 15:34:05 by eriling          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -26,7 +26,7 @@ FILES = main.c file_rt.c parse.c parse_resolution.c parse_ambient.c \
 			print_square.c print_cylinder.c print_triangle.c dynarr_freeall.c hook_function.c ft_abs.c \
 			rgb_to_int.c vect_comput.c my_mlx_pixel_put.c comput_color.c comput_ray.c comput_light.c \
 			vect_obj.c vect_operator.c matrix.c rgb_comput.c hit_plane.c check_end_element.c \
-			ft_isspace.c vect_orien.c
+			ft_isspace.c vect_orien.c comput_triangle.c hit_triangle.c
 
 SRC_PATH = $(shell find srcs -type d)
 vpath %.c $(foreach dir, $(SRC_PATH), $(dir))
