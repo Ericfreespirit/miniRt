@@ -6,12 +6,14 @@
 /*   By: eriling <eriling@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/12 13:37:49 by eriling           #+#    #+#             */
-/*   Updated: 2021/04/12 15:35:09 by eriling          ###   ########.fr       */
+/*   Updated: 2021/04/13 13:02:27 by eriling          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "struct.h"
 #include "comput.h"
+#include "print_struct.h"
+#include "miniRT.h"
 
 int	is_inter_in_triangle(t_vect intersection, t_obj *tr)
 {
@@ -51,6 +53,7 @@ int hit_triangle(t_vect dir, t_vect origin,t_data *img, t_obj *tr)
 	t_vect intersection;
 	
 	normal_tr = get_normal_triangle(tr);
+	normal_tr = normalize(normal_tr);
 	math.det = dot(normal_tr, dir);
 	if (math.det > 1e-6 || math.det < 1e-6)
 	{
@@ -58,7 +61,7 @@ int hit_triangle(t_vect dir, t_vect origin,t_data *img, t_obj *tr)
 		math.t1 = dot(cam_to_tr, normal_tr) / math.det;
 		if (math.t1 > 0)
 		{
-			intersection = vect_sum(origin, scale(cam_to_tr, math.t1));
+			intersection = vect_sum(origin, scale(dir, math.t1));
 			if (is_inter_in_triangle(intersection, tr) == 1)
 			{
 				img->t = math.t1;

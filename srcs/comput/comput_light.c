@@ -6,7 +6,7 @@
 /*   By: eriling <eriling@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/03 15:00:24 by eriling           #+#    #+#             */
-/*   Updated: 2021/04/12 13:33:12 by eriling          ###   ########.fr       */
+/*   Updated: 2021/04/13 12:56:07 by eriling          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,11 @@ t_vect get_normal(t_data *img, t_vect origin, t_vect dir)
 			v = vect_reverse(v);
 	}
 	else if (img->obj->my_type == triangle)
-		v = get_normal_triangle(img->obj);
+	{
+		v = normalize(get_normal_triangle(img->obj));
+		if (dot(dir, v) < 0)
+			v = vect_reverse(v);
+	}
 	return(v);
 }
 

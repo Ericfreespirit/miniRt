@@ -6,12 +6,13 @@
 /*   By: eriling <eriling@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/22 14:07:16 by eriling           #+#    #+#             */
-/*   Updated: 2021/04/12 13:47:50 by eriling          ###   ########.fr       */
+/*   Updated: 2021/04/13 14:15:02 by eriling          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "miniRT.h"
 #include "struct.h"
+#include "print_struct.h"
 #include "comput.h"
 #include <mlx.h>
 #include <math.h>
@@ -87,7 +88,7 @@ void	ray(t_data *img, t_obj *cam)
 	double	angle;
 
 	orien_cam = vect_orien_cam(cam);
-	rot_axis = cross_prod(init_vect(0, 0, 1), normalize(vect_orien_cam(cam)));
+	rot_axis = comput_rot_axis(cam);
 	angle = find_angle(normalize(vect_orien_cam(cam)), init_vect(0, 0, 1));
 	img->y = 0;
 	while (img->y < singleton()->r_y)

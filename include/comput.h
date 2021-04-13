@@ -6,7 +6,7 @@
 /*   By: eriling <eriling@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/03 14:06:41 by eriling           #+#    #+#             */
-/*   Updated: 2021/04/12 15:34:23 by eriling          ###   ########.fr       */
+/*   Updated: 2021/04/13 14:13:18 by eriling          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,5 +59,6 @@ double	vect_length(t_vect v1, t_vect v2);
 t_vect get_vect_triangle(int num, t_obj *triangle);
 t_vect get_normal_triangle(t_obj *triangle);
 int hit_triangle(t_vect dir, t_vect origin,t_data *img, t_obj *tr);
+t_vect comput_rot_axis(t_obj *cam);
 
 #endif
