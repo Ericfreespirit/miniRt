@@ -6,7 +6,7 @@
 /*   By: eriling <eriling@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/12 09:00:12 by eriling           #+#    #+#             */
-/*   Updated: 2021/01/20 15:18:01 by eriling          ###   ########.fr       */
+/*   Updated: 2021/04/14 12:58:03 by eriling          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,5 +19,5 @@ int	ft_strcmp(char *s1, char *s2)
 		s1++;
 		s2++;
 	}
-	return ((unsigned char)*s1 - (unsigned char)*s2);
+	return (*(unsigned char *)s1 - *(unsigned char *)s2);
 }
