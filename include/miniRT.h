@@ -6,7 +6,7 @@
 /*   By: eriling <eriling@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/27 10:54:46 by eriling           #+#    #+#             */
-/*   Updated: 2021/04/09 10:02:18 by eriling          ###   ########.fr       */
+/*   Updated: 2021/04/14 10:57:16 by eriling          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@
 # include <string.h>
 # include <fcntl.h>
 # include "struct.h"
+# include "math.h"
 
 void	file_rt(int fd);
 size_t	ft_strlen(const char *s);

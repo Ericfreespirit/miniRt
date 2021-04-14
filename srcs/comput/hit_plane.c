@@ -6,7 +6,7 @@
 /*   By: eriling <eriling@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/07 09:06:48 by eriling           #+#    #+#             */
-/*   Updated: 2021/04/09 19:03:45 by eriling          ###   ########.fr       */
+/*   Updated: 2021/04/14 09:43:48 by eriling          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,8 +23,7 @@ int hit_plane(t_vect dir, t_vect origin, t_data *img, t_obj *pl)
 	t_vect v_orien_pl;
 	t_vect v_cam_to_pl;
 	
-	v_orien_pl = vect_orien_plane(pl);
-	v_orien_pl = normalize(v_orien_pl);
+	v_orien_pl = normalize(vect_orien_plane(pl));
 	math.det = dot(v_orien_pl, dir);
 	if (math.det > 1e-6 || math.det < 1e-6)
 	{

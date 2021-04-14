@@ -6,7 +6,7 @@
 /*   By: eriling <eriling@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/12 13:37:49 by eriling           #+#    #+#             */
-/*   Updated: 2021/04/13 13:02:27 by eriling          ###   ########.fr       */
+/*   Updated: 2021/04/14 11:22:54 by eriling          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,7 @@ int	is_inter_in_triangle(t_vect intersection, t_obj *tr)
 	return (0);
 }
 
-int hit_triangle(t_vect dir, t_vect origin,t_data *img, t_obj *tr)
+int hit_triangle(t_vect dir, t_vect origin, t_data *img, t_obj *tr)
 {
 	t_math math;
 	t_vect normal_tr;
@@ -59,7 +59,7 @@ int hit_triangle(t_vect dir, t_vect origin,t_data *img, t_obj *tr)
 	{
 		cam_to_tr = vect_sous(get_vect_triangle(1, tr), origin);
 		math.t1 = dot(cam_to_tr, normal_tr) / math.det;
-		if (math.t1 > 0)
+		if (math.t1 > 0 && math.t1 < img->t)
 		{
 			intersection = vect_sum(origin, scale(dir, math.t1));
 			if (is_inter_in_triangle(intersection, tr) == 1)
