@@ -6,15 +6,15 @@
 /*   By: eriling <eriling@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/08 20:00:48 by eriling           #+#    #+#             */
-/*   Updated: 2021/04/08 20:08:41 by eriling          ###   ########.fr       */
+/*   Updated: 2021/04/14 13:07:55 by eriling          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "miniRT.h"
 
-int ft_isspace(int c)
+int	ft_isspace(int c)
 {
-	if((c >= 9 && c <= 13) || c == 32)
+	if ((c >= 9 && c <= 13) || c == 32)
 		return (1);
-	return(0);
+	return (0);
 }

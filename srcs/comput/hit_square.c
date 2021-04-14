@@ -6,7 +6,7 @@
 /*   By: eriling <eriling@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/14 09:33:08 by eriling           #+#    #+#             */
-/*   Updated: 2021/04/14 11:26:59 by eriling          ###   ########.fr       */
+/*   Updated: 2021/04/14 13:03:14 by eriling          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,8 @@ int	is_inter_in_square(t_vect intersection, t_obj *sq, t_vect vect_orien_sq)
 
 	big_x = init_vect(0, 1, 0);
 	inter_to_sq = vect_sous(intersection, vect_obj(sq));
-	if (vect_orien_sq.x == 0 && (vect_orien_sq.y == 1 || vect_orien_sq.y == -1) && vect_orien_sq.z == 0 )
+	if (vect_orien_sq.x == 0 && (vect_orien_sq.y == 1 || vect_orien_sq.y == -1)
+		&& vect_orien_sq.z == 0 )
 		big_x = init_vect(1, 0, 0);
 	big_x = cross_prod(big_x, vect_orien_sq);
 	x = fabs(dot(inter_to_sq, big_x));
@@ -34,7 +35,7 @@ int	is_inter_in_square(t_vect intersection, t_obj *sq, t_vect vect_orien_sq)
 	return (0);
 }
 
-int hit_square (t_vect dir, t_vect origin, t_data *img, t_obj *sq)
+int	hit_square (t_vect dir, t_vect origin, t_data *img, t_obj *sq)
 {
 	t_math	math;
 	t_vect	v_orien_sq;

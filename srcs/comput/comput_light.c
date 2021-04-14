@@ -6,7 +6,7 @@
 /*   By: eriling <eriling@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/03 15:00:24 by eriling           #+#    #+#             */
-/*   Updated: 2021/04/14 09:38:16 by eriling          ###   ########.fr       */
+/*   Updated: 2021/04/14 13:05:55 by eriling          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@
 #include <mlx.h>
 #include <math.h>
 
-t_vect vect_reverse(t_vect v)
+t_vect	vect_reverse(t_vect v)
 {
 	t_vect	res;
 
@@ -27,7 +27,7 @@ t_vect vect_reverse(t_vect v)
 	return (res);
 }
 
-t_vect get_normal(t_data *img, t_vect origin, t_vect dir)
+t_vect	get_normal(t_data *img, t_vect origin, t_vect dir)
 {
 	t_vect	v;
 
@@ -52,7 +52,7 @@ t_vect get_normal(t_data *img, t_vect origin, t_vect dir)
 		if (dot(dir, v) < 0)
 			v = vect_reverse(v);
 	}
-	return(v);
+	return (v);
 }
 
 void	enlight_figure(t_vect origin, t_data *img, t_obj *light, t_vect dir)
