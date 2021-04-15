@@ -6,7 +6,7 @@
 /*   By: eriling <eriling@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/03 14:06:41 by eriling           #+#    #+#             */
-/*   Updated: 2021/04/14 13:00:50 by eriling          ###   ########.fr       */
+/*   Updated: 2021/04/15 12:52:00 by eriling          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,5 +62,5 @@ int		hit_triangle(t_vect dir, t_vect origin, t_data *img, t_obj *tr);
 t_vect	comput_rot_axis(t_obj *cam);
 int		hit_square (t_vect dir, t_vect origin, t_data *img, t_obj *sq);
 t_vect	vect_orien_square(t_obj *obj);
-
+int		hit_cylinder(t_vect dir, t_vect origin, t_data *img, t_obj *cy);
 #endif
