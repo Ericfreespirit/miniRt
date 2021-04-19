@@ -6,7 +6,7 @@
 /*   By: eriling <eriling@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/09 14:28:55 by eriling           #+#    #+#             */
-/*   Updated: 2021/04/14 13:06:41 by eriling          ###   ########.fr       */
+/*   Updated: 2021/04/19 17:52:22 by eriling          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,3 +54,18 @@ t_vect	vect_orien_square(t_obj *obj)
 	}
 	return (res);
 }
+
+t_vect	vect_orien_cylinder(t_obj *obj)
+{
+	t_vect	res;
+
+	res = init_vect(0, 0, 0);
+	if (obj->my_type == cylinder)
+	{
+		res.x = obj->u.cylinder.orien_x;
+		res.y = obj->u.cylinder.orien_y;
+		res.z = obj->u.cylinder.orien_z;
+	}
+	return (res);
+}
+

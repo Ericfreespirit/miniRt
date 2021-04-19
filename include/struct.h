@@ -6,7 +6,7 @@
 /*   By: eriling <eriling@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/02 10:55:05 by eriling           #+#    #+#             */
-/*   Updated: 2021/04/12 15:07:08 by eriling          ###   ########.fr       */
+/*   Updated: 2021/04/19 17:03:12 by eriling          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -152,6 +152,13 @@ typedef struct s_obj
 	union u_obj		u;
 }								t_obj;
 
+typedef struct s_vect
+{
+	double	x;
+	double	y;
+	double	z;
+}				t_vect;
+
 typedef struct s_data
 {
 	void		*img;
@@ -169,6 +176,9 @@ typedef struct s_data
 	double		pixel_len;
 	double		total_light_coeff;
 	int			total_light_color;
+	double		zp;
+	t_vect	origin;
+	t_vect	dir;
 }				t_data;
 
 typedef struct s_vars
@@ -177,13 +187,6 @@ typedef struct s_vars
 	void		*mlx_win;
 	t_data		img;
 }				t_vars;
-
-typedef struct s_vect
-{
-	double	x;
-	double	y;
-	double	z;
-}				t_vect;
 
 typedef struct s_math
 {
