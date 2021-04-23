@@ -6,7 +6,7 @@
 /*   By: eriling <eriling@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/26 08:27:08 by eriling           #+#    #+#             */
-/*   Updated: 2021/04/08 08:53:23 by eriling          ###   ########.fr       */
+/*   Updated: 2021/04/23 20:14:48 by eriling          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,11 +15,25 @@
 #include "comput.h"
 #include <mlx.h>
 
-int	mlx_function(void)
+void		output(t_scene array, int win_or_save, t_vars *vars)
+{
+	if (win_or_save == WINDOW)
+	{
+		vars->mlx_win = mlx_new_window(vars->mlx,
+		singleton()->r_x, singleton()->r_y, "miniRT");
+		mlx_put_image_to_window(vars->mlx, vars->mlx_win, array.img_scene[0]->img, 0, 0);
+	}
+	else if (win_or_save == SAVE)
+			printf("no bmp file yet");
+}
+
+
+int	mlx_function(int win_or_save)
 {
 	t_vars	vars;
 	int		sizex;
 	int		sizey;
+	t_scene array;
 
 	sizex = 0;
 	sizey = 0;
@@ -29,15 +43,15 @@ int	mlx_function(void)
 		singleton()->r_x = sizex;
 	if (singleton()->r_y > sizey)
 		singleton()->r_y = sizey;
-	vars.mlx_win = mlx_new_window(vars.mlx,
-			singleton()->r_x, singleton()->r_y, "miniRT");
 	vars.img.img = mlx_new_image(vars.mlx, singleton()->r_x, singleton()->r_y);
 	vars.img.addr = mlx_get_data_addr(vars.img.img, &vars.img.bits_per_pixel,
 			&vars.img.line_length, &vars.img.endian);
-	comput_all_cam_view(&vars.img, &vars);
-//	mlx_hook(vars.mlx_win, 15, 1L << 17, put_image, &vars);
+	array = *comput_all_cam_view(&vars.img);
+	output(array, win_or_save, &vars);
+	mlx_hook(vars.mlx_win, 12, 1L << 15, ft_image, &vars);
 	mlx_hook(vars.mlx_win, 33, 1L << 17, red_cross, &vars);
-	mlx_hook(vars.mlx_win, 2, 1L << 0, switch_rt, &vars);
+	mlx_hook(vars.mlx_win, 2, 1L << 0, esc_rt, &vars);
 	mlx_loop(vars.mlx);
+	// ft_free_all_scene(array); 
 	return (0);
 }

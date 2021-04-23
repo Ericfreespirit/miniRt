@@ -6,12 +6,13 @@
 /*   By: eriling <eriling@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/17 09:02:13 by eriling           #+#    #+#             */
-/*   Updated: 2021/04/08 09:00:14 by eriling          ###   ########.fr       */
+/*   Updated: 2021/04/23 12:46:52 by eriling          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "miniRT.h"
 #include "struct.h"
+#include "comput.h"
 #include <mlx.h>
 
 void	free_program(t_vars *vars)
@@ -30,7 +31,7 @@ int	red_cross(t_vars *vars)
 	exit(0);
 }
 
-int	switch_rt(int key, t_vars *vars)
+int	esc_rt(int key, t_vars *vars)
 {
 	if (key == 65307)
 	{
@@ -40,8 +41,14 @@ int	switch_rt(int key, t_vars *vars)
 	return (key);
 }
 
-int	put_image(t_vars *vars)
+// int ft_navigate(int key, t_scene array)
+// {
+	
+// }
+
+
+int	ft_image(t_vars *vars)
 {
-	//mlx_put_image_to_window(vars->mlx, vars->mlx_win, img->img, 0, 0);
+	mlx_put_image_to_window(vars->mlx, vars->mlx_win, vars->img.img, 0, 0);
 	return (0);
 }

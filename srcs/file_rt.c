@@ -6,7 +6,7 @@
 /*   By: eriling <eriling@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/15 14:07:46 by eriling           #+#    #+#             */
-/*   Updated: 2021/04/09 10:05:45 by eriling          ###   ########.fr       */
+/*   Updated: 2021/04/23 12:17:46 by eriling          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,7 @@ int	min_data(void)
 	return (0);
 }
 
-void	file_rt(int fd)
+void	file_rt(int fd, int win_or_save)
 {
 	int		ret;
 	char	*line;
@@ -72,6 +72,5 @@ void	file_rt(int fd)
 	}
 	close(fd);
 	print_struct(); // delete at the end
-	mlx_function();
-	return ;
+	mlx_function(win_or_save);
 }

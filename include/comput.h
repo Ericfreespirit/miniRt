@@ -6,7 +6,7 @@
 /*   By: eriling <eriling@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/03 14:06:41 by eriling           #+#    #+#             */
-/*   Updated: 2021/04/19 17:16:09 by eriling          ###   ########.fr       */
+/*   Updated: 2021/04/23 12:41:15 by eriling          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,11 +17,11 @@
 # include "orientation_matrix.h"
 # define DOUBLE_MAX 1.7976931348623157e+308
 
-int		mlx_function(void);
+int		mlx_function(int win_or_save);
 int		red_cross(t_vars *vars);
-int		switch_rt(int key, t_vars *vars);
+int		esc_rt(int key, t_vars *vars);
 void	my_mlx_pixel_put(t_data *data, int x, int y, int color);
-void	comput_all_cam_view(t_data *img, t_vars *vars);
+t_scene	*comput_all_cam_view(t_data *img);
 double	ft_abs(double a);
 void	ray(t_data *img, t_obj *cam);
 double	dot(t_vect v1, t_vect v2);
@@ -66,5 +66,6 @@ int		hit_cylinder(t_vect dir, t_vect origin, t_data *img, t_obj *cy);
 t_vect	vect_orien_cylinder(t_obj *obj);
 t_vect	get_normal_cylinder(t_data *img);
 void		get_bigx_bigy(t_vect *big_x, t_vect *big_y, t_obj *cy);
+void		output(t_scene array, int win_or_save, t_vars *vars);
 
 #endif

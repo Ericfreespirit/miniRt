@@ -6,7 +6,7 @@
 /*   By: eriling <eriling@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/02 10:55:05 by eriling           #+#    #+#             */
-/*   Updated: 2021/04/19 17:03:12 by eriling          ###   ########.fr       */
+/*   Updated: 2021/04/23 19:59:11 by eriling          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -207,5 +207,18 @@ typedef struct s_last_hit
 {
 	double	t;
 	t_obj	obj;
-}				t_last_hit;	
+}				t_last_hit;
+
+typedef struct s_scene
+{
+	t_data **img_scene;
+}				t_scene;
+
+typedef struct s_viewplane
+{
+	double	vp_width;
+	double	vp_height;
+	double	ratio;
+}				t_viewplane;
+
 #endif

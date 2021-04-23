@@ -2,7 +2,8 @@
 	"files.associations": {
 		"parse.h": "c",
 		"minirt.h": "c",
-		"struct.h": "c"
+		"struct.h": "c",
+		"libft.h": "c"
 	},
 	"C_Cpp.errorSquiggles": "Disabled"
 }

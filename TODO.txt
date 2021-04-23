@@ -1,5 +1,3 @@
-- minimize and remaximize should not have a black screen
-
 - Array of scene
 
 - Save bmp

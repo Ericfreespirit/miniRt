@@ -6,7 +6,7 @@
 /*   By: eriling <eriling@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/27 10:54:46 by eriling           #+#    #+#             */
-/*   Updated: 2021/04/14 10:57:16 by eriling          ###   ########.fr       */
+/*   Updated: 2021/04/22 13:45:00 by eriling          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,8 +20,10 @@
 # include <fcntl.h>
 # include "struct.h"
 # include "math.h"
+# define	WINDOW 0
+# define	SAVE 1
 
-void	file_rt(int fd);
+void	file_rt(int fd, int win_or_save);
 size_t	ft_strlen(const char *s);
 int		ft_strncmp(char *s1, char *s2, size_t n);
 int		ft_strcmp(char *s1, char *s2);
@@ -36,7 +38,7 @@ void	dynarr_freeall(void);
 t_dyn	*dynarr_new(void);
 t_all	*singleton(void);
 t_dyn	*sg_dyn(void);
-int		put_image(t_vars *vars);
+int		ft_image(t_vars *vars);
 int		ft_isspace(int c);
 int		check_end_element(char **line);
 
