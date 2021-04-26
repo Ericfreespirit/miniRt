@@ -6,7 +6,7 @@
 #    By: eriling <eriling@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/01/27 10:54:58 by eriling           #+#    #+#              #
-#    Updated: 2021/04/19 17:11:53 by eriling          ###   ########.fr        #
+#    Updated: 2021/04/26 11:26:56 by eriling          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,7 +15,7 @@ NAME = miniRT
 CC = clang
 HEAD = -Iinclude -Ilibft -Iminilibx-linux 
 CFLAGS = -Wall -Wextra $(DEBUG)
-#DEBUG = -fsanitize=address -g3
+# DEBUG = -fsanitize=address -g3
 
 FILES = main.c file_rt.c parse.c parse_resolution.c parse_ambient.c \
 			parse_camera.c parse_light.c parse_sphere.c parse_plane.c \
