@@ -6,7 +6,7 @@
 /*   By: eriling <eriling@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/03 14:06:41 by eriling           #+#    #+#             */
-/*   Updated: 2021/04/26 10:53:01 by eriling          ###   ########.fr       */
+/*   Updated: 2021/04/27 10:07:18 by eriling          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,8 @@
 
 int		mlx_function(int win_or_save);
 int		red_cross(t_vars *vars);
-int		esc_rt(int key, t_vars *vars);
+int		key_press(int key, t_vars *vars);
+int		ft_image(t_vars *vars);
 void	my_mlx_pixel_put(t_data *data, int x, int y, int color);
 t_scene		*comput_all_cam_view(t_vars	*vars);
 double	ft_abs(double a);
@@ -67,5 +68,8 @@ t_vect	vect_orien_cylinder(t_obj *obj);
 t_vect	get_normal_cylinder(t_data *img);
 void		get_bigx_bigy(t_vect *big_x, t_vect *big_y, t_obj *cy);
 void		output(t_scene *array, int win_or_save, t_vars *vars);
+void		free_program(t_vars *vars);
+size_t	count_cam(void);
+
 
 #endif

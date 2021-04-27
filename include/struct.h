@@ -6,7 +6,7 @@
 /*   By: eriling <eriling@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/02 10:55:05 by eriling           #+#    #+#             */
-/*   Updated: 2021/04/26 11:25:36 by eriling          ###   ########.fr       */
+/*   Updated: 2021/04/27 10:05:21 by eriling          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -181,10 +181,17 @@ typedef struct s_data
 	t_vect	dir;
 }				t_data;
 
+typedef struct s_scene
+{
+	t_data img_scene;
+}				t_scene;
+
 typedef struct s_vars
 {
 	void		*mlx;
 	void		*mlx_win;
+	int			i;
+	t_scene	*array;
 	t_data		img;
 }				t_vars;
 
@@ -209,10 +216,6 @@ typedef struct s_last_hit
 	t_obj	obj;
 }				t_last_hit;
 
-typedef struct s_scene
-{
-	t_data img_scene;
-}				t_scene;
 
 typedef struct s_viewplane
 {

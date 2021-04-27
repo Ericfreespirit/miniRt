@@ -6,7 +6,7 @@
 /*   By: eriling <eriling@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/27 10:54:46 by eriling           #+#    #+#             */
-/*   Updated: 2021/04/22 13:45:00 by eriling          ###   ########.fr       */
+/*   Updated: 2021/04/27 09:18:37 by eriling          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,6 @@ void	dynarr_freeall(void);
 t_dyn	*dynarr_new(void);
 t_all	*singleton(void);
 t_dyn	*sg_dyn(void);
-int		ft_image(t_vars *vars);
 int		ft_isspace(int c);
 int		check_end_element(char **line);
 

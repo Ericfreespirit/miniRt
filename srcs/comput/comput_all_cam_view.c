@@ -6,7 +6,7 @@
 /*   By: eriling <eriling@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/17 09:04:33 by eriling           #+#    #+#             */
-/*   Updated: 2021/04/26 11:27:03 by eriling          ###   ########.fr       */
+/*   Updated: 2021/04/27 10:46:52 by eriling          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ t_scene *comput_all_cam_view(t_vars *vars)
 	t_viewplane vpl;
 	size_t	i;
 	size_t	j;
-	t_scene	*array = NULL;
+	t_scene	*array;
 
 	i = 0;
 	j = 0;
