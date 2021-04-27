@@ -6,7 +6,7 @@
 /*   By: eriling <eriling@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/02 10:55:05 by eriling           #+#    #+#             */
-/*   Updated: 2021/04/27 10:05:21 by eriling          ###   ########.fr       */
+/*   Updated: 2021/04/27 16:23:51 by eriling          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -222,6 +222,8 @@ typedef struct s_viewplane
 	double	vp_width;
 	double	vp_height;
 	double	ratio;
+	size_t	i;
+	size_t	j;
 }				t_viewplane;
 
 #endif
