@@ -6,7 +6,7 @@
 /*   By: eriling <eriling@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/19 15:44:52 by eriling           #+#    #+#             */
-/*   Updated: 2021/04/20 11:45:57 by eriling          ###   ########.fr       */
+/*   Updated: 2021/04/27 17:03:56 by eriling          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,5 +24,5 @@ t_vect	get_normal_cylinder(t_data *img)
 	get_bigx_bigy(&big_x, &big_y, img->obj);
 	p = vect_sum(img->origin, scale(img->dir, img->t));
 	return (normalize(vect_sous(p, vect_sum(vect_obj(img->obj),
-		scale(normalize(vect_orien_cylinder(img->obj)), img->zp)))));
+					scale(normalize(vect_orien_cylinder(img->obj)), img->zp)))));
 }

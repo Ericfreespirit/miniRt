@@ -6,7 +6,7 @@
 /*   By: eriling <eriling@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/22 14:07:16 by eriling           #+#    #+#             */
-/*   Updated: 2021/04/19 17:43:35 by eriling          ###   ########.fr       */
+/*   Updated: 2021/04/27 17:06:12 by eriling          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,8 +27,9 @@ int	check_hit_figure(t_vect dir, t_vect origin, t_data *img, t_obj *obj)
 		return (1);
 	else if (obj->my_type == square && hit_square(dir, origin, img, obj) == 1)
 		return (1);
-	else if (obj->my_type == cylinder && (hit_cylinder(dir, origin, img, obj) == 1))
-			return (1);
+	else if (obj->my_type == cylinder
+		&& (hit_cylinder(dir, origin, img, obj) == 1))
+		return (1);
 	return (0);
 }
 

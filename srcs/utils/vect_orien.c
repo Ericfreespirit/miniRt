@@ -6,7 +6,7 @@
 /*   By: eriling <eriling@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/09 14:28:55 by eriling           #+#    #+#             */
-/*   Updated: 2021/04/19 17:52:22 by eriling          ###   ########.fr       */
+/*   Updated: 2021/04/27 17:13:26 by eriling          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,4 +68,3 @@ t_vect	vect_orien_cylinder(t_obj *obj)
 	}
 	return (res);
 }
-

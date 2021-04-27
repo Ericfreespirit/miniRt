@@ -6,7 +6,7 @@
 /*   By: eriling <eriling@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/27 10:54:41 by eriling           #+#    #+#             */
-/*   Updated: 2021/04/22 14:20:36 by eriling          ###   ########.fr       */
+/*   Updated: 2021/04/27 17:13:04 by eriling          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,6 @@ int	main(int ac, char **av)
 			return (1);
 		file_rt(fd, SAVE);
 	}
-	
 	else
 		printf("Error\nInput false");
 	return (0);

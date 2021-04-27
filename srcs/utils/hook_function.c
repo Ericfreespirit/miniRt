@@ -6,7 +6,7 @@
 /*   By: eriling <eriling@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/17 09:02:13 by eriling           #+#    #+#             */
-/*   Updated: 2021/04/27 11:01:45 by eriling          ###   ########.fr       */
+/*   Updated: 2021/04/27 17:14:26 by eriling          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ void	free_program(t_vars *vars)
 		i++;
 	}
 	mlx_destroy_display(vars->mlx);
-	free(vars->array); 
+	free(vars->array);
 	free(vars->mlx);
 	free(singleton());
 	dynarr_freeall();
@@ -52,7 +52,7 @@ int	key_press(int key, t_vars *vars)
 		mlx_put_image_to_window(vars->mlx, vars->mlx_win,
 		vars->array[vars->i].img_scene.img, 0, 0);
 	}
-	else if (key == 65363 && vars->i < (int)count_cam()-1) // right
+	else if (key == 65363 && vars->i < (int)count_cam() - 1) // right
 	{
 		vars->i += 1;
 		mlx_put_image_to_window(vars->mlx, vars->mlx_win,

@@ -6,7 +6,7 @@
 /*   By: eriling <eriling@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/03 15:00:24 by eriling           #+#    #+#             */
-/*   Updated: 2021/04/19 17:04:00 by eriling          ###   ########.fr       */
+/*   Updated: 2021/04/27 17:12:33 by eriling          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,22 @@ t_vect	vect_reverse(t_vect v)
 	res.y = v.y * -1;
 	res.z = v.z * -1;
 	return (res);
+}
+
+void	get_normal_2(t_data *img, t_vect dir, t_vect *v)
+{
+	if (img->obj->my_type == square)
+	{
+		*v = normalize(vect_orien_square(img->obj));
+		if (dot(dir, *v) < 0)
+			*v = vect_reverse(*v);
+	}
+	else if (img->obj->my_type == cylinder)
+	{
+		*v = normalize(get_normal_cylinder(img));
+		if (dot(dir, *v) < 0)
+			*v = vect_reverse(*v);
+	}
 }
 
 t_vect	get_normal(t_data *img, t_vect origin, t_vect dir)
@@ -46,18 +62,7 @@ t_vect	get_normal(t_data *img, t_vect origin, t_vect dir)
 		if (dot(dir, v) < 0)
 			v = vect_reverse(v);
 	}
-	else if (img->obj->my_type == square)
-	{
-		v = normalize(vect_orien_square(img->obj));
-		if (dot(dir, v) < 0)
-			v = vect_reverse(v);
-	}
-	else if (img->obj->my_type == cylinder)
-	{
-		v = normalize(get_normal_cylinder(img));
-		if (dot(dir, v) < 0)
-		v = vect_reverse(v);
-	}
+	get_normal_2(img, dir, &v);
 	return (v);
 }
 

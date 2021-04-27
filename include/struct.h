@@ -6,7 +6,7 @@
 /*   By: eriling <eriling@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/02 10:55:05 by eriling           #+#    #+#             */
-/*   Updated: 2021/04/27 16:23:51 by eriling          ###   ########.fr       */
+/*   Updated: 2021/04/27 17:16:34 by eriling          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -177,13 +177,13 @@ typedef struct s_data
 	double		total_light_coeff;
 	int			total_light_color;
 	double		zp;
-	t_vect	origin;
-	t_vect	dir;
+	t_vect		origin;
+	t_vect		dir;
 }				t_data;
 
 typedef struct s_scene
 {
-	t_data img_scene;
+	t_data		img_scene;
 }				t_scene;
 
 typedef struct s_vars
@@ -191,7 +191,7 @@ typedef struct s_vars
 	void		*mlx;
 	void		*mlx_win;
 	int			i;
-	t_scene	*array;
+	t_scene		*array;
 	t_data		img;
 }				t_vars;
 
@@ -215,7 +215,6 @@ typedef struct s_last_hit
 	double	t;
 	t_obj	obj;
 }				t_last_hit;
-
 
 typedef struct s_viewplane
 {
