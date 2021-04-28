@@ -6,7 +6,7 @@
 /*   By: eriling <eriling@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/26 08:27:08 by eriling           #+#    #+#             */
-/*   Updated: 2021/04/27 16:56:49 by eriling          ###   ########.fr       */
+/*   Updated: 2021/04/28 10:26:05 by eriling          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,8 +36,9 @@ int	mlx_function(int win_or_save)
 
 	init_mlx_function_var(&vars, &sizex, &sizey);
 	vars.array = comput_all_cam_view(&vars);
-	if (vars.array == NULL)
+	if (vars.array == NULL || count_cam() == 0)
 	{
+		printf("Error: malloc of the cam");
 		free(vars.mlx);
 		free(singleton());
 		dynarr_freeall();
