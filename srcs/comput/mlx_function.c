@@ -6,7 +6,7 @@
 /*   By: eriling <eriling@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/26 08:27:08 by eriling           #+#    #+#             */
-/*   Updated: 2021/04/28 10:26:05 by eriling          ###   ########.fr       */
+/*   Updated: 2021/04/29 14:32:22 by eriling          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 #include "comput.h"
 #include <mlx.h>
 
-void	init_mlx_function_var(t_vars *vars, int *sizex, int *sizey)
+static void	init_mlx_function_var(t_vars *vars, int *sizex, int *sizey)
 {
 	*sizex = 0;
 	*sizey = 0;
@@ -45,7 +45,7 @@ int	mlx_function(int win_or_save)
 		return (0);
 	}
 	if (win_or_save == SAVE)
-		printf("no bmp file yet");
+		create_bmp(&vars);
 	vars.mlx_win = mlx_new_window(vars.mlx,
 			singleton()->r_x, singleton()->r_y, "miniRT");
 	mlx_hook(vars.mlx_win, 12, 1L << 15, ft_image, &vars);

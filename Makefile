@@ -6,7 +6,7 @@
 #    By: eriling <eriling@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/01/27 10:54:58 by eriling           #+#    #+#              #
-#    Updated: 2021/04/27 09:35:43 by eriling          ###   ########.fr        #
+#    Updated: 2021/04/29 15:58:17 by eriling          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,7 +15,7 @@ NAME = miniRT
 CC = clang
 HEAD = -Iinclude -Ilibft -Iminilibx-linux 
 CFLAGS = -Wall -Wextra $(DEBUG)
-# DEBUG = -fsanitize=address -g3
+#DEBUG = -fsanitize=address -g3
 
 FILES = main.c file_rt.c parse.c parse_resolution.c parse_ambient.c \
 			parse_camera.c parse_light.c parse_sphere.c parse_plane.c \
@@ -27,7 +27,7 @@ FILES = main.c file_rt.c parse.c parse_resolution.c parse_ambient.c \
 			rgb_to_int.c vect_comput.c my_mlx_pixel_put.c comput_color.c comput_ray.c comput_light.c \
 			vect_obj.c vect_operator.c matrix.c rgb_comput.c hit_plane.c check_end_element.c \
 			ft_isspace.c vect_orien.c comput_triangle.c hit_triangle.c comput_rot_axis.c \
-			hit_square.c hit_cylinder.c comput_cylinder.c
+			hit_square.c hit_cylinder.c comput_cylinder.c create_bmp.c
 
 SRC_PATH = $(shell find srcs -type d)
 vpath %.c $(foreach dir, $(SRC_PATH), $(dir))

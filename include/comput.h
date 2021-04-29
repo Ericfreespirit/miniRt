@@ -6,7 +6,7 @@
 /*   By: eriling <eriling@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/03 14:06:41 by eriling           #+#    #+#             */
-/*   Updated: 2021/04/27 17:15:50 by eriling          ###   ########.fr       */
+/*   Updated: 2021/04/29 14:37:32 by eriling          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,5 +70,10 @@ void	get_bigx_bigy(t_vect *big_x, t_vect *big_y, t_obj *cy);
 void	output(t_scene *array, int win_or_save, t_vars *vars);
 void	free_program(t_vars *vars);
 size_t	count_cam(void);
+void	create_bmp(t_vars *vars);
+void	ft_bzero(void *s, size_t n);
+void	*ft_memset(void *s, int c, size_t n);
+void	*ft_calloc(size_t nmemb, size_t size);
+void	*ft_memcpy(void *dest, const void *src, size_t n);
 
 #endif

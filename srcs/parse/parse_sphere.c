@@ -6,7 +6,7 @@
 /*   By: eriling <eriling@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/29 09:57:22 by eriling           #+#    #+#             */
-/*   Updated: 2021/04/08 20:11:57 by eriling          ###   ########.fr       */
+/*   Updated: 2021/04/28 13:10:24 by eriling          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,11 @@ int	stock_sphere(char **line, t_sp *sphere_data)
 	if (add_3_float(line, &(sphere_data->x), &(sphere_data->y),
 			&(sphere_data->z)) == 1)
 		return (1);
+	while (**line && ft_isspace(**line))
+		(*line)++;
 	sphere_data->diam = ft_atof_2(line);
+	if (**line == ',')
+		return (1);
 	if (add_rgb(line, &(sphere_data->r), &(sphere_data->g),
 			&(sphere_data->b)) == 1)
 		return (1);

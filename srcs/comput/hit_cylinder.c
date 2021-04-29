@@ -6,7 +6,7 @@
 /*   By: eriling <eriling@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/15 12:48:03 by eriling           #+#    #+#             */
-/*   Updated: 2021/04/27 17:00:22 by eriling          ###   ########.fr       */
+/*   Updated: 2021/04/28 11:01:47 by eriling          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,11 +63,12 @@ int	is_inter_in_xp_yp_zp(t_math *math, t_data *img, t_obj *cy)
 		if ((math->t1 < 0 || math->t1 > img->t)
 			&& (math->t2 < 0 || math->t2 > img->t))
 			return (0);
-		if (math->t1 > 0 && math->t1 < img->t
-			&& get_zp(math->t1, img, cy) <= cy->u.cylinder.high / 2.0)
+		if (get_zp(math->t1, img, cy) > cy->u.cylinder.high / 2.0
+				&& get_zp(math->t2, img, cy) > cy->u.cylinder.high / 2.0)
+			return (0);
+		if (math->t1 > 0 && math->t1 < img->t)
 			img->t = math->t1;
-		if (math->t2 > 0 && math->t2 < img->t
-			&& get_zp(math->t2, img, cy) <= cy->u.cylinder.high / 2.0)
+		if (math->t2 > 0 && math->t2 < img->t)
 			img->t = math->t2;
 		return (1);
 	}

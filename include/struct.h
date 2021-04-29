@@ -6,7 +6,7 @@
 /*   By: eriling <eriling@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/02 10:55:05 by eriling           #+#    #+#             */
-/*   Updated: 2021/04/27 17:16:34 by eriling          ###   ########.fr       */
+/*   Updated: 2021/04/29 15:12:12 by eriling          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -225,4 +225,15 @@ typedef struct s_viewplane
 	size_t	j;
 }				t_viewplane;
 
+typedef struct 		s_header
+{
+	short	type;
+	int	size;
+	int	start;
+	int	header_size;
+	short	planes;
+	short	bpp;
+	int	raw_size;
+	int	res;
+}				t_header;
 #endif
