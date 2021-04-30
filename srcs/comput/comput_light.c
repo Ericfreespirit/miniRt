@@ -6,7 +6,7 @@
 /*   By: eriling <eriling@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/03 15:00:24 by eriling           #+#    #+#             */
-/*   Updated: 2021/04/28 13:49:55 by eriling          ###   ########.fr       */
+/*   Updated: 2021/04/30 14:11:33 by eriling          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,11 +36,7 @@ void	get_normal_2(t_data *img, t_vect dir, t_vect *v)
 			*v = vect_reverse(*v);
 	}
 	else if (img->obj->my_type == cylinder)
-	{
 		*v = normalize(get_normal_cylinder(img));
-		if (dot(dir, *v) < 0)
-			*v = vect_reverse(*v);
-	}
 }
 
 t_vect	get_normal(t_data *img, t_vect origin, t_vect dir)
