@@ -6,7 +6,7 @@
 /*   By: eriling <eriling@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/29 10:56:04 by eriling           #+#    #+#             */
-/*   Updated: 2021/04/29 16:25:07 by eriling          ###   ########.fr       */
+/*   Updated: 2021/04/30 11:02:09 by eriling          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,7 @@ static void	init_header(t_header *header)
 
 static void	create_header(char *header)
 {
-	t_header head;
+	t_header	head;
 
 	ft_bzero(header, 54);
 	init_header(&head);
@@ -63,14 +63,15 @@ static void	create_header(char *header)
 	ft_memcpy(&header[42], &head.res, 4);
 }
 
-static	int	*fill_file(t_vars *vars)
+static	int	*fill_file(t_data img_scene)
 {
-	int *file;
+	int	*file;
 	int	i;
 	int	j;
-	int k;
+	int	k;
 
-	if (!(file = ft_calloc(singleton()->r_y * singleton()->r_x, sizeof(int))))
+	file = ft_calloc(singleton()->r_y * singleton()->r_x, sizeof(int));
+	if (file == NULL)
 		return (NULL);
 	j = 0;
 	while (j < singleton()->r_y)
@@ -78,10 +79,10 @@ static	int	*fill_file(t_vars *vars)
 		i = 0;
 		while (i < singleton()->r_x)
 		{
-			k = (singleton()->r_y  - 1 - j)
-			* (vars->array[0].img_scene.line_length) / 4 + i;
-			file[k] = ((int *)vars->array[0].img_scene.addr)
-			[i +(j * (vars->array[0].img_scene.line_length) / 4 )];
+			k = (singleton()->r_y - 1 - j)
+				* (img_scene.line_length) / 4 + i;
+			file[k] = ((int *)img_scene.addr)
+				[i + (j * (img_scene.line_length) / 4 )];
 			i++;
 		}
 		j++;
@@ -91,22 +92,26 @@ static	int	*fill_file(t_vars *vars)
 
 void	create_bmp(t_vars *vars)
 {
-	int	fd;
-	int		i;
-	char *file;
-	char *file_name;
+	t_bmp	var;
 	char	header[54];
 
-	i = 0;
-	file_name = ft_strjoin(i,".bmp");
-
-	fd = open("1.bmp", O_CREAT | O_WRONLY, 0666);
-	create_header(&header[0]);
-	file = (char*)fill_file(vars);
-	write(fd, header, 54);
-	write(fd, file, 4 * singleton()->r_x * singleton()->r_y);
+	var.i = 0;
+	while (var.i < (int)count_cam())
+	{
+		var.file_name = ft_itoa(var.i);
+		var.tmp = var.file_name;
+		var.file_name = ft_strjoin(var.file_name, ".bmp");
+		free(var.tmp);
+		var.fd = open(var.file_name, O_CREAT | O_WRONLY, 0666);
+		create_header(&header[0]);
+		var.file = (char*)fill_file(vars->array[var.i].img_scene);
+		write(var.fd, header, 54);
+		write(var.fd, var.file, 4 * singleton()->r_x * singleton()->r_y);
+		free(var.file);
+		free(var.file_name);
+		var.i++;
+	}
 	free_program_bmp(vars);
-	free(file);
-	close(fd);
+	close(var.fd);
 	exit(0);
 }

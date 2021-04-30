@@ -6,7 +6,7 @@
 /*   By: eriling <eriling@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/02 10:55:05 by eriling           #+#    #+#             */
-/*   Updated: 2021/04/29 15:12:12 by eriling          ###   ########.fr       */
+/*   Updated: 2021/04/30 10:51:06 by eriling          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -236,4 +236,14 @@ typedef struct 		s_header
 	int	raw_size;
 	int	res;
 }				t_header;
+
+typedef	struct		s_bmp
+{
+	int	fd;
+	int	i;
+	char *file;
+	char *tmp;
+	char *file_name;
+}			t_bmp;
+
 #endif

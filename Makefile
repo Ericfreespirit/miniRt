@@ -6,7 +6,7 @@
 #    By: eriling <eriling@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/01/27 10:54:58 by eriling           #+#    #+#              #
-#    Updated: 2021/04/29 15:58:17 by eriling          ###   ########.fr        #
+#    Updated: 2021/04/30 11:03:51 by eriling          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -39,6 +39,7 @@ all :   $(NAME)
 
 $(NAME) : libft/libft.a $(OBJ_PATH) $(OBJ) ./include/miniRT.h
 	$(CC) -lXext -lX11 -lm $(CFLAGS) $(HEAD) $(OBJ) minilibx-linux/libmlx.a libft/libft.a -o ${NAME}
+	
 		
 libft/libft.a : 
 	make -C libft
