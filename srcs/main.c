@@ -6,7 +6,7 @@
 /*   By: eriling <eriling@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/27 10:54:41 by eriling           #+#    #+#             */
-/*   Updated: 2021/04/27 17:13:04 by eriling          ###   ########.fr       */
+/*   Updated: 2021/04/30 15:47:00 by eriling          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,10 @@ int	main(int ac, char **av)
 	{
 		fd = open(av[1], O_RDONLY);
 		if (fd == -1)
+		{
+			printf("Error: No file\n");
 			return (1);
+		}
 		file_rt(fd, WINDOW);
 	}
 	else if (ac == 3 && ft_strcmp(".rt", &av[1][ft_strlen(av[1]) - 3]) == 0
@@ -30,7 +33,10 @@ int	main(int ac, char **av)
 	{
 		fd = open(av[1], O_RDONLY);
 		if (fd == -1)
+		{
+			printf("Error: No file\n");
 			return (1);
+		}
 		file_rt(fd, SAVE);
 	}
 	else
