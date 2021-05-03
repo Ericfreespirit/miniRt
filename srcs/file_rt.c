@@ -6,7 +6,7 @@
 /*   By: eriling <eriling@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/15 14:07:46 by eriling           #+#    #+#             */
-/*   Updated: 2021/04/30 11:09:34 by eriling          ###   ########.fr       */
+/*   Updated: 2021/05/03 10:00:14 by eriling          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ int	error_parse(int error, int fd)
 {
 	if (error == 1)
 	{
-		printf("Error\nbad parsing, check you value(s) and the format\n");
+		printf("Error\nbad parsing, check you value(s) and the format");
 		free(singleton());
 		dynarr_freeall();
 		close(fd);
@@ -40,7 +40,7 @@ int	min_data(void)
 	}
 	else if (singleton()->a == 0)
 	{
-		printf("Error\nmiss Ambient\n");
+		printf("Error\nmiss Ambient");
 		return (1);
 	}
 	return (0);

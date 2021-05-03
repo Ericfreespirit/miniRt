@@ -6,7 +6,7 @@
 /*   By: eriling <eriling@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/27 10:54:41 by eriling           #+#    #+#             */
-/*   Updated: 2021/04/30 15:49:28 by eriling          ###   ########.fr       */
+/*   Updated: 2021/05/03 09:58:56 by eriling          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ int	main(int ac, char **av)
 		fd = open(av[1], O_RDONLY);
 		if (fd == -1)
 		{
-			printf("Error: No file\n");
+			printf("Error\nNo file");
 			return (1);
 		}
 		file_rt(fd, WINDOW);
@@ -34,11 +34,11 @@ int	main(int ac, char **av)
 		fd = open(av[1], O_RDONLY);
 		if (fd == -1)
 		{
-			printf("Error: No file\n");
+			printf("Error\nNo file");
 			return (1);
 		}
 		file_rt(fd, SAVE);
 	}
-	printf("Error: Input false\n");
+	printf("Error\nInput false");
 	return (0);
 }
